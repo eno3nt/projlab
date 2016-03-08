@@ -1,6 +1,8 @@
 package ballmerpeak.stargate.utils;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -41,17 +43,29 @@ public class SwingMapLoader implements MapLoader {
 	private int height;
 	private int width;
 	
-	public SwingMapLoader(String path) throws FileNotFoundException, IOException {
+	public SwingMapLoader(String resourcePath) throws IOException {
+		InputStream stream = this.getClass().getResourceAsStream(resourcePath);
+		if(stream == null) {
+			throw new FileNotFoundException("Resource \"" + resourcePath + "\" can not be found.");
+		}
+		loadFromStream(stream);
+		stream.close();
+	}
+	
+	public SwingMapLoader(File file) throws IOException {
+		if(!file.exists()) throw new FileNotFoundException("File \"" + file.getAbsolutePath() + "\" can not be found.");
+		FileInputStream stream = new FileInputStream(file);
+		loadFromStream(stream);
+		stream.close();
+	}
+	
+	private void loadFromStream(InputStream stream) throws IOException {
 		doors = new HashMap<>();
 		scales = new HashMap<>();
 		zpms = 0;
 		player = new Player();
 		gate = new Gate();
-		InputStream resource = this.getClass().getResourceAsStream(path);
-		if(resource == null) {
-			throw new FileNotFoundException("Resource \"" + path + "\" can not be found.");
-		}
-		try (BufferedReader br = new BufferedReader(new InputStreamReader(resource))) {
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(stream))) {
 			String lineOne = br.readLine();
 			String lineTwo = br.readLine();
 			height = Integer.parseInt(lineOne);
