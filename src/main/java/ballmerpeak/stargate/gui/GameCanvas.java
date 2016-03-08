@@ -3,8 +3,9 @@ package ballmerpeak.stargate.gui;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
@@ -38,15 +39,15 @@ public class GameCanvas extends JPanel implements GameRenderer {
 		return true;
 	}
 	
-	public static void loadAssets(String path) throws IOException {
+	public void loadAssets(String path) throws IOException {
 		for (DrawableIndex asset : DrawableIndex.values()) {
-			String assetFileName = path + asset.name() + "." + imageFormat;
-			File assetFile = new File(assetFileName);
-			if (!assetFile.exists()) {
-				System.err.println("[WARNING] Asset not found: " + assetFileName);
+			String assetName = path + asset.name() + "." + imageFormat;
+			InputStream inStream = this.getClass().getResourceAsStream(assetName);
+			if (inStream == null) {
+				System.err.println("[WARNING] Asset not found: " + assetName);
 				continue;
 			}
-			tileImages[asset.ordinal()] = ImageIO.read(assetFile);
+			tileImages[asset.ordinal()] = ImageIO.read(inStream); 
 		}
 	}
 

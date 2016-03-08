@@ -21,19 +21,15 @@ public class GameWindow extends JFrame implements KeyListener, InputCommandSourc
 	private SwingInputCommandFactory ifc;
 
 	public GameWindow() throws FileNotFoundException, IOException {
-		String dataDirectory = System.getProperty("user.dir") + "/src/test/resources";
-		String mapDirectory = dataDirectory + "/maps/";
-		String mapFile = mapDirectory + "map4.txt";
-		MapLoader loader = new SwingMapLoader(mapFile);
+		String mapDirectory = "/maps/";
+		MapLoader loader = new SwingMapLoader(mapDirectory + "map4.txt");
 
 		game = loader.getGame();
-		
-		dataDirectory = System.getProperty("user.dir") + "/src/test/resources";
-		GameCanvas.loadAssets(dataDirectory + "/images/");
-
 		gfxModel = loader.getGraphicsModel();
-		canvas = new GameCanvas(gfxModel.getHeight(), gfxModel.getWidth());
+		GameCanvas canvas = new GameCanvas(gfxModel.getHeight(), gfxModel.getWidth());
+		canvas.loadAssets("/images/");
 		canvas.setDrawableSource(gfxModel);
+		this.canvas = canvas;
 
 		add((JPanel) canvas);
 

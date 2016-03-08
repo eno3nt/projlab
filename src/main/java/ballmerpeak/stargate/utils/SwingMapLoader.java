@@ -2,8 +2,9 @@ package ballmerpeak.stargate.utils;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,13 +41,17 @@ public class SwingMapLoader implements MapLoader {
 	private int height;
 	private int width;
 	
-	public SwingMapLoader(String filename) throws FileNotFoundException, IOException {
+	public SwingMapLoader(String path) throws FileNotFoundException, IOException {
 		doors = new HashMap<>();
 		scales = new HashMap<>();
 		zpms = 0;
 		player = new Player();
 		gate = new Gate();
-		try (FileReader fr = new FileReader(filename); BufferedReader br = new BufferedReader(fr)) {
+		InputStream resource = this.getClass().getResourceAsStream(path);
+		if(resource == null) {
+			throw new FileNotFoundException("Resource \"" + path + "\" can not be found.");
+		}
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(resource))) {
 			String lineOne = br.readLine();
 			String lineTwo = br.readLine();
 			height = Integer.parseInt(lineOne);
@@ -67,6 +72,7 @@ public class SwingMapLoader implements MapLoader {
 					tiles[y][x] = tile; 
 				}
 			}
+			br.close();
 		}
 		setupDoors();
 		setupNeighbors();
@@ -141,7 +147,7 @@ public class SwingMapLoader implements MapLoader {
 			return downWall;
 
 		}
-
+		
 		if (Character.isAlphabetic(c)) {
 			if (Character.isLowerCase(c)) {
 				Door door = new Door();
@@ -153,8 +159,6 @@ public class SwingMapLoader implements MapLoader {
 				return scale;
 			}
 		}
-		
 		throw new InvalidMapFileException("bad character read");
-
 	}
 }
