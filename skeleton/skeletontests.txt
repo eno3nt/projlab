@@ -1,0 +1,12 @@
+# commands:
+# up left right down yellow blue pickup
+
+# format:
+# mapname
+# commands (all on one line)
+
+skeletontestmap1
+up up left yellow up blue
+
+skeletontestmap2
+up up left yellow pickup

@@ -13,9 +13,9 @@ public class SkeletonTest {
 	protected Game game;
 	protected List<InputCommand> commands;
 	
-	public SkeletonTest(Path map, List<InputCommand> commands) {
+	public SkeletonTest(String filename, List<InputCommand> commands) {
 		try {
-			MapLoader loader = new MapLoader(map.toString());
+			MapLoader loader = new MapLoader(filename);
 			game = loader.getGame();
 			this.commands = commands;
 			

@@ -30,7 +30,7 @@ public class Main {
 
 	public static void main(String args[]) throws FileNotFoundException, IOException {
 		enter();
-		log("Main::main");
+		log("Main#main");
 		Main main = new Main(new MapLoader("map4.txt"), new NoopInputCommandFactory());
 		main.run();
 		leave();

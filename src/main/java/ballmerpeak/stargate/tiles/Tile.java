@@ -14,13 +14,13 @@ public abstract class Tile implements Drawable {
 	private boolean isDirty = true;
 	
 	public Tile() {
-		enter();
-		log("Tile#Tile");
+		//enter();
+		//log("Tile#Tile");
 		neighbors = new ArrayList<Tile>(Direction.values().length);
 		for (int i = 0; i < Direction.values().length; i++) {
 			neighbors.add(null);
 		}
-		leave();
+		//leave();
 	}
 	
 	public Tile getNeighborForDirection(Direction dir) {
@@ -31,10 +31,10 @@ public abstract class Tile implements Drawable {
 	}
 	
 	public void setNeightborForDirection(Direction dir, Tile tile) {
-		enter();
-		log("Tile#setNeighborForDirection");
+		//enter();
+		//log("Tile#setNeighborForDirection");
 		neighbors.set(dir.ordinal(), tile);
-		leave();
+		//leave();
 	}
 
 	public boolean canPlayerMoveHere() {

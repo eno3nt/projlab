@@ -15,12 +15,12 @@ public class SpecialWall extends Wall {
 	private final Gate gate;
 
 	public SpecialWall(Direction dir, Gate gate) {
-		enter();
-		log("SpecialWall#SpecialWall");
+//		enter();
+//		log("SpecialWall#SpecialWall");
 		color = ShotColor.INACTIVE;
 		direction = dir;
 		this.gate = gate;
-		leave();
+//		leave();
 	}
 
 	@Override
