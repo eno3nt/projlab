@@ -3,6 +3,8 @@ package ballmerpeak.stargate;
 import ballmerpeak.stargate.tiles.ShotColor;
 import ballmerpeak.stargate.tiles.SpecialWall;
 
+import static ballmerpeak.stargate.skeleton.SkeletonLogger.*;
+
 public class Gate {
 
 	private SpecialWall yellowWall;
@@ -11,8 +13,11 @@ public class Gate {
 	private boolean yellowActive;
 	
 	public Gate() {
+		enter();
+		log("Gate#Gate");
 		yellowWall = blueWall = null;
 		blueActive = yellowActive = false;
+		leave();
 	}
 
 	public SpecialWall getBlueWall() {
@@ -24,11 +29,17 @@ public class Gate {
 	}
 	
 	public boolean isActive() {
+		enter();
+		log("Gate#isActive");
+		leave();
 		return blueActive && yellowActive;
 	}
 	
 	public void wallShot(SpecialWall wall, ShotColor color) {
+		enter();
+		log("Gate#wallShot");
 		setWallForColor(color, wall);
+		leave();
 	}
 	
 	private void setYellowWall(SpecialWall wall) {

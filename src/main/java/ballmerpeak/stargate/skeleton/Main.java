@@ -9,6 +9,8 @@ import ballmerpeak.stargate.gui.InputCommandFactory;
 import ballmerpeak.stargate.utils.MapLoader;
 import noop.NoopInputCommandFactory;
 
+import static ballmerpeak.stargate.skeleton.SkeletonLogger.*;
+
 public class Main {
 	
 	private InputCommandFactory ifc;
@@ -27,7 +29,10 @@ public class Main {
 	}
 
 	public static void main(String args[]) throws FileNotFoundException, IOException {
+		enter();
+		log("Main::main");
 		Main main = new Main(new MapLoader("map4.txt"), new NoopInputCommandFactory());
 		main.run();
+		leave();
 	}
 }

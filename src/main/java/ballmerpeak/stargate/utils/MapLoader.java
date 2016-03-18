@@ -21,6 +21,8 @@ import ballmerpeak.stargate.tiles.SpecialWall;
 import ballmerpeak.stargate.tiles.Tile;
 import ballmerpeak.stargate.tiles.Wall;
 
+import static ballmerpeak.stargate.skeleton.SkeletonLogger.*;
+
 public class MapLoader {
 
 	Game game;
@@ -51,6 +53,8 @@ public class MapLoader {
 	}
 
 	public Game getGame() throws FileNotFoundException, IOException {
+		enter();
+		log("MapLoader#getGame");
 		if (game != null)
 			return game;
 		
@@ -92,6 +96,7 @@ public class MapLoader {
 		setupDoors();
 		setupNeighbors();
 		game = new Game(player, zpms);
+		leave();
 		return game;
 	}
 
