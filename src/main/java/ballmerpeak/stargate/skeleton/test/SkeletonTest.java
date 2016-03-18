@@ -6,18 +6,19 @@ import java.util.List;
 
 import ballmerpeak.stargate.Game;
 import ballmerpeak.stargate.commands.InputCommand;
+import ballmerpeak.stargate.skeleton.SkeletonInputCommandFactory;
 import ballmerpeak.stargate.utils.MapLoader;
 
 public class SkeletonTest {
 
-	protected Game game;
-	protected List<InputCommand> commands;
+	Game game;
+	SkeletonInputCommandFactory factory;
 	
 	public SkeletonTest(String filename, List<InputCommand> commands) {
 		try {
 			MapLoader loader = new MapLoader(filename);
 			game = loader.getGame();
-			this.commands = commands;
+			factory = new SkeletonInputCommandFactory(commands);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -26,8 +27,9 @@ public class SkeletonTest {
 	}
 	
 	public void run() {
-		for (InputCommand command : commands) {
-			game.receiveInput(command);
+		InputCommand cmd;
+		while ((cmd = factory.nextCommand()) != null) {
+			game.receiveInput(cmd);
 		}
 	}
 }
