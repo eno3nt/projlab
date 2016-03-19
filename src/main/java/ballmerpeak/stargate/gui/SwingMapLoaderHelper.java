@@ -29,7 +29,8 @@ public class SwingMapLoaderHelper implements MapLoaderHelper {
 	}
 	
 	public DrawableSource getGraphicsModel() {
-		return new SwingGraphicsModel(tiles, player);
+		//return new SwingGraphicsModel(tiles, player);
+		return null;
 	}
 
 }

@@ -3,7 +3,7 @@ package ballmerpeak.stargate.tiles;
 import ballmerpeak.stargate.Player;
 import ballmerpeak.stargate.gui.DrawableIndex;
 
-import static ballmerpeak.stargate.skeleton.SkeletonLogger.*;
+import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
 public class Scale extends Floor {
 
@@ -13,24 +13,24 @@ public class Scale extends Floor {
 	public boolean pickupCrate(Player player) {
 		enter();
 		log("Scale#pickupCrate");
-		boolean didPickUpCrate = super.pickupCrate(player);
+		boolean didPickUpCrate = yesNo("Could the player pick up the crate?");
+		
 		if (didPickUpCrate) {
 			door.close();
-			if (player.getTile() == door) {
+			boolean answer = yesNo("Is the player standing on the door?");
+			if (answer) {
 				player.kill();
 			}
-			leave();
-			return true;
 		}
 		leave();
-		return false;
+		return didPickUpCrate;
 	}
 
 	@Override
 	public boolean dropCrateHere(Player player) {
 		enter();
 		log("Scale#dropCrateHere");
-		boolean didDropCrate = super.dropCrateHere(player);
+		boolean didDropCrate = yesNo("Could the player drop the crate?");
 		if (didDropCrate) {
 			door.open();
 		}
@@ -43,7 +43,6 @@ public class Scale extends Floor {
 		enter();
 		log("Scale#stepOnTile");
 		door.open();
-		super.stepOnTile(player);
 		leave();;
 	}
 
@@ -51,10 +50,11 @@ public class Scale extends Floor {
 	public void leaveTile(Player player) {
 		enter();
 		log("Scae#leaveTile");
-		super.leaveTile(player);
-		if (!hasCrate())
+		boolean hasCrate = yesNo("Is there a crate on the scale?");
+		if (!hasCrate)
 			door.close();
-		if (!hasCrate() && player.getTile() == door) {
+		boolean standing = yesNo("Is the player standing on the door?");
+		if (!hasCrate && standing) {
 			player.kill();
 		}
 		leave();
@@ -65,10 +65,5 @@ public class Scale extends Floor {
 		log("Scale#setDoor");
 		this.door = door;
 		leave();
-	}
-
-	@Override
-	public DrawableIndex getDrawableIndex() {
-		return hasCrate() ? DrawableIndex.SCALE_WITH_CRATE : DrawableIndex.SCALE; 
 	}
 }

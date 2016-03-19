@@ -9,7 +9,7 @@ import ballmerpeak.stargate.gui.InputCommandFactory;
 import ballmerpeak.stargate.utils.MapLoader;
 import noop.NoopInputCommandFactory;
 
-import static ballmerpeak.stargate.skeleton.SkeletonLogger.*;
+import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
 public class Main {
 	

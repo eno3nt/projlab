@@ -4,7 +4,7 @@ import ballmerpeak.stargate.Direction;
 import ballmerpeak.stargate.Player;
 import ballmerpeak.stargate.gui.DrawableIndex;
 
-import static ballmerpeak.stargate.skeleton.SkeletonLogger.*;
+import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
 public class Door extends Tile {
 
@@ -41,28 +41,20 @@ public class Door extends Tile {
 	public boolean isOpen() {
 		enter();
 		log("Door#isOpen");
+		boolean answer = yesNo("Is the door open?");
 		leave();
-		return open;
+		return answer;
 	}
 
 	public void close() {
 		enter();
 		log("Door#close");
-		open = false;
-		setDirty(true);
 		leave();
 	}
 
 	public void open() {
 		enter();
 		log("Door#open");
-		open = true;
-		setDirty(true);
 		leave();
-	}
-
-	@Override
-	public DrawableIndex getDrawableIndex() {
-		return open ? DrawableIndex.DOOR_OPEN : DrawableIndex.DOOR_CLOSED;
 	}
 }

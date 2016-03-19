@@ -7,9 +7,9 @@ import ballmerpeak.stargate.Direction;
 import ballmerpeak.stargate.Player;
 import ballmerpeak.stargate.gui.Drawable;
 
-import static ballmerpeak.stargate.skeleton.SkeletonLogger.*;
+import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
-public abstract class Tile implements Drawable {
+public abstract class Tile {
 	private List<Tile> neighbors;
 	private boolean isDirty = true;
 	
@@ -47,14 +47,12 @@ public abstract class Tile implements Drawable {
 	public void stepOnTile(Player player) {
 		enter();
 		log("Tile#stepOnTile");
-		setDirty(true);
 		leave();
 	}
 	
 	public void leaveTile(Player player) {
 		enter();
 		log("Tile#leaveTile");
-		setDirty(true);
 		leave();
 	}
 	
@@ -78,15 +76,5 @@ public abstract class Tile implements Drawable {
 		Tile nextTile = getNeighborForDirection(dir);
 		nextTile.shootIt(color, dir);
 		leave();
-	}
-
-	@Override
-	public boolean isDirty() {
-		return isDirty;
-	}
-
-	@Override
-	public void setDirty(boolean isDirty) {
-		this.isDirty = isDirty;
 	}
 }

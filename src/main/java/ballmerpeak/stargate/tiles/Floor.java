@@ -3,7 +3,7 @@ package ballmerpeak.stargate.tiles;
 import ballmerpeak.stargate.Player;
 import ballmerpeak.stargate.gui.DrawableIndex;
 
-import static ballmerpeak.stargate.skeleton.SkeletonLogger.*;
+import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
 public class Floor extends Tile {
 	
@@ -32,8 +32,9 @@ public class Floor extends Tile {
 	public boolean hasCrate() {
 		enter();
 		log("Floor#hasCrate");
+		boolean answer = yesNo("Is there a crate on the floor?");
 		leave();
-		return hasCrate;
+		return answer;
 	}
 	
 	@Override
@@ -53,7 +54,7 @@ public class Floor extends Tile {
 	public boolean pickupCrate(Player player) {
 		enter();
 		log("Floor#pickupCrate");
-		if (hasCrate) {
+		if (hasCrate()) {
 			hasCrate = false;
 			leave();
 			return true;
@@ -66,18 +67,11 @@ public class Floor extends Tile {
 	public void stepOnTile(Player player) {
 		enter();
 		log("Floor#stepOnTile");
-		if (ZPM) {
+		boolean answer = yesNo("Is there a ZPM on the floor?");
+		if (answer) {
 			player.pickupZPM();
 			ZPM = false;
 		}
-		player.setTile(this);
-		super.stepOnTile(player);
 		leave();
-	}
-
-	public DrawableIndex getDrawableIndex() {
-		return ZPM ? DrawableIndex.FLOOR_WITH_ZPM :
-			hasCrate ? DrawableIndex.FLOOR_WITH_CRATE :
-				DrawableIndex.FLOOR;
 	}
 }

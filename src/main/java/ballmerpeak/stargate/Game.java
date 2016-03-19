@@ -2,9 +2,9 @@ package ballmerpeak.stargate;
 
 import ballmerpeak.stargate.commands.InputCommand;
 import ballmerpeak.stargate.gui.InputCommandHandler;
-import ballmerpeak.stargate.skeleton.SkeletonLogger;
+import ballmerpeak.stargate.skeleton.SkeletonIO;
 
-import static ballmerpeak.stargate.skeleton.SkeletonLogger.*;
+import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
 public class Game implements InputCommandHandler {
 
@@ -12,26 +12,27 @@ public class Game implements InputCommandHandler {
 	private int numberOfZPMs;
 	
 	public Game(Player player, int numberOfZPMs) {
-		SkeletonLogger.enter();
-		SkeletonLogger.log("Game#Game");
+		SkeletonIO.enter();
+		SkeletonIO.log("Game#Game");
 		this.player = player;
 		this.numberOfZPMs = numberOfZPMs;
-		SkeletonLogger.leave();
+		SkeletonIO.leave();
 	}
 
 	@Override
 	public void receiveInput(InputCommand command) {
-		SkeletonLogger.enter();
-		SkeletonLogger.log("Game#receiveInput");
+		SkeletonIO.enter();
+		SkeletonIO.log("Game#receiveInput");
 		command.execute(player);
-		SkeletonLogger.leave();
+		SkeletonIO.leave();
 	}
 
 	public boolean didPlayerWin() {
 		enter();
 		log("Game#didPlayerWin");
+		boolean answer = yesNo("Did the player win?");
 		leave();
-		return player.getZPMsCarried() == numberOfZPMs;
+		return answer;
 	}
 	
 	public boolean isPlayerAlive() {

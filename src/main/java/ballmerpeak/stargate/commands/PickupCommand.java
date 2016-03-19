@@ -2,7 +2,7 @@ package ballmerpeak.stargate.commands;
 
 import ballmerpeak.stargate.Player;
 
-import static ballmerpeak.stargate.skeleton.SkeletonLogger.*;
+import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
 public class PickupCommand implements InputCommand {
 

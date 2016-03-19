@@ -3,7 +3,7 @@ package ballmerpeak.stargate.commands;
 import ballmerpeak.stargate.Player;
 import ballmerpeak.stargate.tiles.ShotColor;
 
-import static ballmerpeak.stargate.skeleton.SkeletonLogger.*;
+import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
 public class ShootCommand implements InputCommand {
 	

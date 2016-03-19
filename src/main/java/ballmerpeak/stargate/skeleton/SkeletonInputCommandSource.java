@@ -4,7 +4,7 @@ import ballmerpeak.stargate.commands.InputCommand;
 import ballmerpeak.stargate.gui.InputCommandHandler;
 import ballmerpeak.stargate.gui.InputCommandSource;
 
-import static ballmerpeak.stargate.skeleton.SkeletonLogger.*;
+import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
 public class SkeletonInputCommandSource implements InputCommandSource {
 

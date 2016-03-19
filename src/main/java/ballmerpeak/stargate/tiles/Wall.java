@@ -3,7 +3,7 @@ package ballmerpeak.stargate.tiles;
 import ballmerpeak.stargate.Direction;
 import ballmerpeak.stargate.gui.DrawableIndex;
 
-import static ballmerpeak.stargate.skeleton.SkeletonLogger.*;
+import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
 public class Wall extends Tile {
 	
@@ -21,10 +21,5 @@ public class Wall extends Tile {
 		log("Wall#shootIt");
 		leave();
 		// wall absorbs shots
-	}
-	
-	@Override
-	public DrawableIndex getDrawableIndex() {
-		return DrawableIndex.WALL;
 	}
 }

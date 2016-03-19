@@ -29,12 +29,14 @@ public class SwingGraphicsModel implements DrawableSource {
 
 	@Override
 	public Drawable getPlayerTile() {
-		return player.getTile();
+		//return player.getTile();
+		return null;
 	}
 
 	@Override
 	public DrawableIndex getPlayerDrawableIndex() {
-		return player.getDrawableIndex();
+		//return player.getDrawableIndex();
+		return null;
 	}
 
 	@Override

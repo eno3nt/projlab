@@ -3,7 +3,7 @@ package ballmerpeak.stargate.tiles;
 import ballmerpeak.stargate.Player;
 import ballmerpeak.stargate.gui.DrawableIndex;
 
-import static ballmerpeak.stargate.skeleton.SkeletonLogger.*;
+import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
 public class Pit extends Floor {
 
@@ -12,7 +12,6 @@ public class Pit extends Floor {
 		enter();
 		log("Pit#stepOnTile");
 		player.kill();
-		super.stepOnTile(player);
 		leave();
 	}
 	
@@ -22,9 +21,5 @@ public class Pit extends Floor {
 		log("Pit#dropCrateHere");
 		leave();
 		return true;
-	}
-
-	public DrawableIndex getDrawableIndex() {
-		return DrawableIndex.PIT;
 	}
 }

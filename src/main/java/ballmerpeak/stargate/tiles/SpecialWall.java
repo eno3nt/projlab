@@ -5,7 +5,7 @@ import ballmerpeak.stargate.Gate;
 import ballmerpeak.stargate.Player;
 import ballmerpeak.stargate.gui.DrawableIndex;
 
-import static ballmerpeak.stargate.skeleton.SkeletonLogger.*;
+import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
 public class SpecialWall extends Wall {
 
@@ -27,25 +27,16 @@ public class SpecialWall extends Wall {
 	public boolean canPlayerMoveHere() {
 		enter();
 		log("SpecialWall#canPlayerMoveHere");
-		boolean active = gate.isActive();
+		boolean gateActive = gate.isActive();
+		boolean wallActive = yesNo("Is there a portal on the wall?");
 		leave();
-		return (color != ShotColor.INACTIVE && active);
+		return (gateActive && wallActive);
 	}
 
 	@Override
 	public void stepOnTile(Player player) {
 		enter();
 		log("SpecialWall#stepOnTile");
-		SpecialWall distantWall;
-		if (color == ShotColor.BLUE) {
-			distantWall = gate.getYellowWall();
-		} else {
-			distantWall = gate.getBlueWall();
-		}
-		Tile nextTile = distantWall.getNextTile();
-		player.setDirection(distantWall.direction);
-		nextTile.stepOnTile(player);
-		super.stepOnTile(player);
 		leave();
 	}
 
@@ -61,18 +52,6 @@ public class SpecialWall extends Wall {
 		enter();
 		log("SpecialWall#setColor");
 		this.color = color;
-		setDirty(true);
 		leave();
 	}
-
-	@Override
-	public DrawableIndex getDrawableIndex() {
-		return color == ShotColor.BLUE ? DrawableIndex.SPECIAL_WALL_BLUE
-				: color == ShotColor.YELLOW ? DrawableIndex.SPECIAL_WALL_YELLOW : DrawableIndex.SPECIAL_WALL_INACTIVE;
-	}
-
-	private Tile getNextTile() {
-		return getNeighborForDirection(direction);
-	}
-
 }

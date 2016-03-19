@@ -5,9 +5,9 @@ import ballmerpeak.stargate.gui.DrawableIndex;
 import ballmerpeak.stargate.tiles.ShotColor;
 import ballmerpeak.stargate.tiles.Tile;
 
-import static ballmerpeak.stargate.skeleton.SkeletonLogger.*;
+import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
-public class Player implements Drawable {
+public class Player {
 
 	private Direction direction = Direction.UP;
 	private boolean carrying;
@@ -27,14 +27,14 @@ public class Player implements Drawable {
 	public boolean isAlive() {
 		enter();
 		log("Player#isAlive");
+		boolean ans = yesNo("Is Player alive?");
 		leave();
-		return alive;
+		return ans;
 	}
 
 	public void kill() {
 		enter();
 		log("Player#kill");
-		alive = false;
 		leave();
 	}
 
@@ -42,7 +42,6 @@ public class Player implements Drawable {
 		enter();
 		log("Player#setDirection");
 		this.direction = direction;
-		setDirty(true);
 		leave();
 	}
 
@@ -56,7 +55,6 @@ public class Player implements Drawable {
 	public void pickupZPM() {
 		enter();
 		log("Player#pickupZPM");
-		ZPMsCarried++;
 		leave();
 	}
 
@@ -77,17 +75,12 @@ public class Player implements Drawable {
 	public void move(Direction direction) {
 		enter();
 		log("Player#move");
-		if (this.direction != direction) {
-			this.direction = direction;
-		} else {
-			Tile currentTile = tile;
-			Tile nextTile = currentTile.getNeighborForDirection(direction);
-			if (nextTile.canPlayerMoveHere()) {
-				currentTile.leaveTile(this);
-				nextTile.stepOnTile(this);
-			}
+		Tile currentTile = tile;
+		Tile nextTile = currentTile.getNeighborForDirection(direction);
+		if (nextTile.canPlayerMoveHere()) {
+			currentTile.leaveTile(this);
+			nextTile.stepOnTile(this);
 		}
-		setDirty(true);
 		leave();
 	}
 
@@ -95,15 +88,14 @@ public class Player implements Drawable {
 		enter();
 		log("Player#pickupCrate");
 		Tile nextTile = getTileFrontOfPlayer();
-		if (carrying) {
+		boolean answer = yesNo("Is the player carrying a crate?");
+		if (answer) {
 			if (nextTile.dropCrateHere(this))
 				carrying = false;
 		} else {
 			if (nextTile.pickupCrate(this))
 				carrying = true;
 		}
-		nextTile.setDirty(true);
-		setDirty(true);
 		leave();
 	}
 
@@ -113,32 +105,6 @@ public class Player implements Drawable {
 		Tile nextTile = getTileFrontOfPlayer();
 		nextTile.shootIt(color, direction);
 		leave();
-	}
-
-	@Override
-	public boolean isDirty() {
-		return tile.isDirty();
-	}
-
-	@Override
-	public void setDirty(boolean b) {
-		tile.setDirty(b);
-	}
-
-	@Override
-	public DrawableIndex getDrawableIndex() {
-		switch (direction) {
-		case UP:
-			return DrawableIndex.PLAYER_FACING_UP;
-		case DOWN:
-			return DrawableIndex.PLAYER_FACING_DOWN;
-		case LEFT:
-			return DrawableIndex.PLAYER_FACING_LEFT;
-		case RIGHT:
-			return DrawableIndex.PLAYER_FACING_RIGHT;
-		default:
-			throw new RuntimeException("shouldn't be here...");
-		}
 	}
 
 	private Tile getTileFrontOfPlayer() {
