@@ -12,15 +12,15 @@ public class Door extends Tile {
 	public boolean canPlayerMoveHere() {
 		enter();
 		log("Door#canPlayerMoveHere");
+		boolean isopen = isOpen();
 		leave();
-		return isOpen();
+		return isopen;
 	}
 
 	@Override
 	public void stepOnTile(Player player) {
 		enter();
 		log("Door#stepOnTile");
-		player.setTile(this);
 		if (!isOpen())
 			player.kill();
 		leave();
