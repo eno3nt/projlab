@@ -28,7 +28,7 @@ public class SpecialWall extends Wall {
 		enter();
 		log("SpecialWall#canPlayerMoveHere");
 		boolean gateActive = gate.isActive();
-		boolean wallActive = ;
+		boolean wallActive = yesNo("Is there a portal on the wall?");;
 		leave();
 		return (gateActive && wallActive);
 	}
@@ -53,12 +53,5 @@ public class SpecialWall extends Wall {
 		log("SpecialWall#setColor");
 		this.color = color;
 		leave();
-	}
-	
-	public boolean hasPortal() {
-		enter();
-		log("SpecialWall#hasPortal");
-		boolean ans = yesNo("Is there a portal on the wall?");
-		return ans;
 	}
 }
