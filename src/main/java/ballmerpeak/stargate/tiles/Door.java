@@ -12,8 +12,9 @@ public class Door extends Tile {
 	public boolean canPlayerMoveHere() {
 		enter();
 		log("Door#canPlayerMoveHere");
+		boolean isopen = isOpen();
 		leave();
-		return isOpen();
+		return isopen;
 	}
 
 	@Override
