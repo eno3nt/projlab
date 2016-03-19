@@ -11,11 +11,13 @@ import ballmerpeak.stargate.tiles.Scale;
 import ballmerpeak.stargate.tiles.SpecialWall;
 import ballmerpeak.stargate.tiles.Tile;
 
+import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
+
 public class MapLoader {
 
 	public final Game game;
 	public final Player player;
-	public final Tile playerTile;
+	public Tile playerTile;
 	
 	public final Door door;
 	public final Scale scale;
@@ -27,6 +29,8 @@ public class MapLoader {
 	public final SpecialWall wall1, wall2;
 	
 	public MapLoader() {
+		enter();
+		log("MapLoader#MapLoader");
 		gate = new Gate();
 		wall1 = new SpecialWall(Direction.UP, gate);		
 		wall2 = new SpecialWall(Direction.UP, gate);		
@@ -42,9 +46,13 @@ public class MapLoader {
 		player.setTile(playerTile);
 		
 		game = new Game(player, 0);
+		leave();
 	}
 	
 	public Game getGame() {
+		enter();
+		log("MapLoader#getGame");
+		leave();
 		return game;
 	}
 	

@@ -17,12 +17,12 @@ public class Player {
 	private Tile tile;
 
 	public Player() {
-		enter();
-		log("Player#player");
+//		enter();
+//		log("Player#player");
 		alive = true;
 		ZPMsCarried = 0;
 		carrying = false;
-		leave();
+//		leave();
 	}
 
 	public boolean isAlive() {

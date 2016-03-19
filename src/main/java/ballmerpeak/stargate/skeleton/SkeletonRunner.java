@@ -60,8 +60,17 @@ public class SkeletonRunner {
 		}
 	}
 	
-	static void scaleMoveTest() {
+	static void stepOnScaleTest() {
 		setNextTile(loader.scale);
+		if (yesNo("Should the player move up?")) {
+			game.receiveInput(MOVE_UP);
+		}
+	}
+	
+	static void leaveScaleTest() {
+		loader.player.setTile(loader.scale);
+		loader.playerTile = loader.scale;
+		setNextTile(new Floor());
 		if (yesNo("Should the player move up?")) {
 			game.receiveInput(MOVE_UP);
 		}
@@ -89,7 +98,7 @@ public class SkeletonRunner {
 	}
 	
 	static void pitMoveTest() {
-		setNextTile(loader.pit);
+		setNextTile(loader. pit);
 		if (yesNo("Should the player move up?")) {
 			game.receiveInput(MOVE_UP);
 		}
@@ -109,12 +118,13 @@ public class SkeletonRunner {
 		System.out.println("which test to run?");
 		System.out.println("0: floor move test");
 		System.out.println("1: shoot wall test");
-		System.out.println("2: scale move test");
-		System.out.println("3: door move test");
-		System.out.println("4: scale pickup test");
-		System.out.println("5: special wall move test");
-		System.out.println("6: pit move test");
-		System.out.println("7: shoot special wall test");
+		System.out.println("2: step on scale test");
+		System.out.println("3: leave scale test");
+		System.out.println("4: door move test");
+		System.out.println("5: scale pickup test");
+		System.out.println("6: special wall move test");
+		System.out.println("7: pit move test");
+		System.out.println("8: shoot special wall test");
 		System.out.println("q: quit");
 		String ans = question("");
 		if (ans.toLowerCase().charAt(0) == 'q') {
@@ -124,12 +134,13 @@ public class SkeletonRunner {
 		switch (i) {
 		case 0: floorTest(); break;
 		case 1: shootWallTest(); break;
-		case 2: scaleMoveTest(); break;
-		case 3: doorMoveTest(); break;
-		case 4: scalePickupTest(); break;
-		case 5: specialWallMoveTest(); break;
-		case 6: pitMoveTest(); break;
-		case 7: shootSpecialWallTest(); break;
+		case 2: stepOnScaleTest(); break;
+		case 3: leaveScaleTest(); break;
+		case 4: doorMoveTest(); break;
+		case 5: scalePickupTest(); break;
+		case 6: specialWallMoveTest(); break;
+		case 7: pitMoveTest(); break;
+		case 8: shootSpecialWallTest(); break;
 		}
 	}
 	

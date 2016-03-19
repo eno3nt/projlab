@@ -11,10 +11,10 @@ public class Gate {
 	private SpecialWall blueWall;
 	
 	public Gate() {
-		enter();
-		log("Gate#Gate");
+//		enter();
+//		log("Gate#Gate");
 		yellowWall = blueWall = null;
-		leave();
+//		leave();
 	}
 
 	public SpecialWall getBlueWall() {

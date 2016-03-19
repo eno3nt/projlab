@@ -10,10 +10,10 @@ public class MoveCommand implements InputCommand {
 	private Direction dir;
 	
 	public MoveCommand(Direction dir) {
-		enter();
-		log("MoveCommand#MoveCommand");
+//		enter();
+//		log("MoveCommand#MoveCommand");
 		this.dir = dir;
-		leave();
+//		leave();
 	}
 	
 	@Override
