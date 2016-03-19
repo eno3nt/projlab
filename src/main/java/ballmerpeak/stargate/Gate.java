@@ -18,10 +18,16 @@ public class Gate {
 	}
 
 	public SpecialWall getBlueWall() {
+		enter();
+		log("Gate#getBlueWall");
+		leave();
 		return blueWall;
 	}
 	
 	public SpecialWall getYellowWall() {
+		enter();
+		log("Gate#getYellowWall");
+		leave();
 		return yellowWall;
 	}
 	
