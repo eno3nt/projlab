@@ -21,7 +21,7 @@ public class SkeletonInputCommandFactory implements InputCommandFactory {
 	public InputCommand nextCommand() {
 		enter();
 		log("SkeletonInputCommandFactory#nextCommand");
-		if (index == commands.size() - 1)
+		if (index == commands.size())
 			return null;
 		leave();
 		return commands.get(index++);

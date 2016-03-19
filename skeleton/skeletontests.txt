@@ -6,6 +6,14 @@
 # mapname
 # commands (all on one line)
 
+move test
+movemap
+up down down left left right right
+
+pickup test
+movemap
+pickup pickup
+
 az elso teszt
 skeletontestmap1
 up up left yellow up blue
