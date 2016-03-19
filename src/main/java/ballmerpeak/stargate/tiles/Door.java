@@ -24,7 +24,6 @@ public class Door extends Tile {
 		if (!isOpen())
 			player.kill();
 		leave();
-		super.stepOnTile(player);
 	}
 
 	@Override
