@@ -34,7 +34,8 @@ public class MapLoader {
 		gate = new Gate();
 		wall1 = new SpecialWall(Direction.UP, gate);		
 		wall2 = new SpecialWall(Direction.UP, gate);		
-		
+		gate.setBlueWall(wall1);
+		gate.setYelloWall(wall2);
 		door = new Door();
 		scale = new Scale();
 		scale.setDoor(door);

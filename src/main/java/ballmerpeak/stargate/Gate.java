@@ -38,4 +38,12 @@ public class Gate {
 		log("Gate#wallShot");
 		leave();
 	}
+	
+	public void setBlueWall(SpecialWall wall) {
+		blueWall = wall;
+	}
+	
+	public void setYelloWall(SpecialWall wall) {
+		yellowWall = wall;
+	}
 }

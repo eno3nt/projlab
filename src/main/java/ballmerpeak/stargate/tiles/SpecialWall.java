@@ -37,6 +37,14 @@ public class SpecialWall extends Wall {
 	public void stepOnTile(Player player) {
 		enter();
 		log("SpecialWall#stepOnTile");
+		SpecialWall otherWall;
+		boolean ans = yesNo("Is the portal blue?");
+		if (ans) {
+			otherWall = gate.getYellowWall();
+		} else {
+			otherWall = gate.getBlueWall();
+		}
+		otherWall.teleport(player);
 		leave();
 	}
 
@@ -52,6 +60,12 @@ public class SpecialWall extends Wall {
 		enter();
 		log("SpecialWall#setColor");
 		this.color = color;
+		leave();
+	}
+	
+	private void teleport(Player player) {
+		enter();
+		log("SpecialWall#teleport");
 		leave();
 	}
 }
