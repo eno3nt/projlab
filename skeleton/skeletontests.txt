@@ -2,11 +2,14 @@
 # up left right down yellow blue pickup
 
 # format:
+# description
 # mapname
 # commands (all on one line)
 
+az elso teszt
 skeletontestmap1
 up up left yellow up blue
 
+a masodik teszt
 skeletontestmap2
 up up left yellow pickup

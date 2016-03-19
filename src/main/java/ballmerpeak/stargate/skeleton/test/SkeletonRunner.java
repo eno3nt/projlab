@@ -1,22 +1,20 @@
 package ballmerpeak.stargate.skeleton.test;
 
-import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 import ballmerpeak.stargate.Direction;
 import ballmerpeak.stargate.commands.InputCommand;
 import ballmerpeak.stargate.commands.MoveCommand;
 import ballmerpeak.stargate.commands.PickupCommand;
 import ballmerpeak.stargate.commands.ShootCommand;
-import ballmerpeak.stargate.skeleton.Pair;
 import ballmerpeak.stargate.tiles.ShotColor;
 
 public class SkeletonRunner {
@@ -38,7 +36,7 @@ public class SkeletonRunner {
 	}};
 
 
-	static List<Pair<String, List<InputCommand>>> testPairs = new ArrayList<>();
+	static List<SkeletonTest> tests = new ArrayList<>();
 	
 	static void readTestsFile(String filename) throws FileNotFoundException, IOException {
 		try (BufferedReader r = new BufferedReader(new FileReader(filename))) {
@@ -47,27 +45,36 @@ public class SkeletonRunner {
 				// commands must be on one line
 				if (line.startsWith("#") || line.isEmpty())
 					continue;
-				String mapFile = line;
+				String description = line;
+				String mapFile = r.readLine();
 				String commandLine = r.readLine();
 				String[] commandStrings = commandLine.split(" ");
 				List<InputCommand> commands = new ArrayList<>();
 				for (String s : commandStrings) {
 					commands.add(commandsMap.get(s));
 				}
-				testPairs.add(new Pair<>("skeleton/" + mapFile, commands));
+				tests.add(new SkeletonTest("skeleton/" + mapFile, commands, description));
 			}
 		}
 	}
 	
+	static int printMenu() {
+		System.out.println("enter number for test to run (q to quit)");
+		for (int i = 0; i < tests.size(); i++) {
+			System.out.format("%2d: %s\n", i, tests.get(i).description);
+		}
+		Scanner scanner = new Scanner(System.in);
+		String res = scanner.next();
+		if (res.equals("q"))
+			System.exit(1);
+		return Integer.parseInt(res);
+	}
+	
 	public static void main(String... args) throws FileNotFoundException, IOException {
 		readTestsFile("skeleton/skeletontests.txt");
-		List<SkeletonTest> tests = new ArrayList<>();
-		for (Pair<String,List<InputCommand>> pair : testPairs) {
-			tests.add(new SkeletonTest(pair.left, pair.right));
-		}
-		
-		for (SkeletonTest test : tests) {
-			test.run();
+		while (true) {
+			int index = printMenu();
+			tests.get(index).run();
 		}
 	}
 }

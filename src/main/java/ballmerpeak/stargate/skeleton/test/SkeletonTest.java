@@ -13,12 +13,18 @@ public class SkeletonTest {
 
 	Game game;
 	SkeletonInputCommandFactory factory;
+	String description;
 	
-	public SkeletonTest(String filename, List<InputCommand> commands) {
+	public String getDescription() {
+		return description;
+	}
+
+	public SkeletonTest(String mapFilename, List<InputCommand> commands, String desc) {
 		try {
-			MapLoader loader = new MapLoader(filename);
+			MapLoader loader = new MapLoader(mapFilename);
 			game = loader.getGame();
 			factory = new SkeletonInputCommandFactory(commands);
+			description = desc;
 			
 		} catch (IOException e) {
 			e.printStackTrace();

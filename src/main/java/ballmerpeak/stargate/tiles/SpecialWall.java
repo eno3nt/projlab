@@ -15,12 +15,12 @@ public class SpecialWall extends Wall {
 	private final Gate gate;
 
 	public SpecialWall(Direction dir, Gate gate) {
-//		enter();
-//		log("SpecialWall#SpecialWall");
+		// enter();
+		// log("SpecialWall#SpecialWall");
 		color = ShotColor.INACTIVE;
 		direction = dir;
 		this.gate = gate;
-//		leave();
+		// leave();
 	}
 
 	@Override
@@ -36,7 +36,12 @@ public class SpecialWall extends Wall {
 	public void stepOnTile(Player player) {
 		enter();
 		log("#Scale#stepOnTile");
-		SpecialWall distantWall = (color == ShotColor.BLUE) ? gate.getYellowWall() : gate.getBlueWall();
+		SpecialWall distantWall;
+		if (color == ShotColor.BLUE) {
+			distantWall = gate.getYellowWall();
+		} else {
+			distantWall = gate.getBlueWall();
+		}
 		Tile nextTile = distantWall.getNextTile();
 		player.setDirection(distantWall.direction);
 		nextTile.stepOnTile(player);
