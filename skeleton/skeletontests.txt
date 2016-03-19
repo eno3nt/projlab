@@ -11,13 +11,21 @@ movemap
 up down down left left right right
 
 pickup test
-movemap
-pickup pickup
+pickupmap
+left pickup right pickup
 
-az elso teszt
-skeletontestmap1
-up up left yellow up blue
+shoot test
+shootmap
+yellow left blue left
 
-a masodik teszt
-skeletontestmap2
-up up left yellow pickup
+pit test
+pitmap
+up
+
+#az elso teszt
+#skeletontestmap1
+#up up left yellow up blue
+#
+#a masodik teszt
+#skeletontestmap2
+#up up left yellow pickup

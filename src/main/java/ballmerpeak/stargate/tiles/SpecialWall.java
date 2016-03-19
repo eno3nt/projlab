@@ -35,7 +35,7 @@ public class SpecialWall extends Wall {
 	@Override
 	public void stepOnTile(Player player) {
 		enter();
-		log("#Scale#stepOnTile");
+		log("SpecialWall#stepOnTile");
 		SpecialWall distantWall;
 		if (color == ShotColor.BLUE) {
 			distantWall = gate.getYellowWall();
@@ -52,14 +52,14 @@ public class SpecialWall extends Wall {
 	@Override
 	public void shootIt(ShotColor color, Direction dir) {
 		enter();
-		log("#Scale#shootIt");
+		log("SpecialWall#shootIt");
 		gate.wallShot(this, color);
 		leave();
 	}
 
 	public void setColor(ShotColor color) {
 		enter();
-		log("#Scae#setColor");
+		log("SpecialWall#setColor");
 		this.color = color;
 		setDirty(true);
 		leave();
