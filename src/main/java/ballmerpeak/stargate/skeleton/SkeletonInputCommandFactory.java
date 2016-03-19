@@ -1,7 +1,7 @@
 package ballmerpeak.stargate.skeleton;
 
+import ballmerpeak.stargate.InputCommandFactory;
 import ballmerpeak.stargate.commands.InputCommand;
-import ballmerpeak.stargate.gui.InputCommandFactory;
 
 import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 

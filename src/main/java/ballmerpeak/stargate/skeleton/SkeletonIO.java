@@ -3,7 +3,6 @@ package ballmerpeak.stargate.skeleton;
 import java.util.Scanner;
 
 import ballmerpeak.stargate.Direction;
-import ballmerpeak.stargate.skeleton.test.SkeletonTile;
 
 public class SkeletonIO {
 	

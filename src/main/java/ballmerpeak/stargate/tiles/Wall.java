@@ -1,8 +1,6 @@
 package ballmerpeak.stargate.tiles;
 
 import ballmerpeak.stargate.Direction;
-import ballmerpeak.stargate.gui.DrawableIndex;
-
 import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
 public class Wall extends Tile {

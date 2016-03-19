@@ -1,10 +1,11 @@
 package ballmerpeak.stargate.skeleton;
 
 import ballmerpeak.stargate.commands.InputCommand;
-import ballmerpeak.stargate.gui.InputCommandHandler;
-import ballmerpeak.stargate.gui.InputCommandSource;
 
 import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
+
+import ballmerpeak.stargate.InputCommandHandler;
+import ballmerpeak.stargate.InputCommandSource;
 
 public class SkeletonInputCommandSource implements InputCommandSource {
 

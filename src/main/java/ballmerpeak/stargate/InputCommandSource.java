@@ -1,4 +1,4 @@
-package ballmerpeak.stargate.gui;
+package ballmerpeak.stargate;
 
 import ballmerpeak.stargate.commands.InputCommand;
 

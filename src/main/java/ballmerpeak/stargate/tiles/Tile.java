@@ -5,13 +5,10 @@ import java.util.List;
 
 import ballmerpeak.stargate.Direction;
 import ballmerpeak.stargate.Player;
-import ballmerpeak.stargate.gui.Drawable;
-
 import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
 public abstract class Tile {
 	private List<Tile> neighbors;
-	private boolean isDirty = true;
 	
 	public Tile() {
 		//enter();

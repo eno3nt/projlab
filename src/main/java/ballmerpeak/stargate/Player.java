@@ -1,11 +1,12 @@
 package ballmerpeak.stargate;
 
-import ballmerpeak.stargate.gui.Drawable;
-import ballmerpeak.stargate.gui.DrawableIndex;
+import static ballmerpeak.stargate.skeleton.SkeletonIO.enter;
+import static ballmerpeak.stargate.skeleton.SkeletonIO.leave;
+import static ballmerpeak.stargate.skeleton.SkeletonIO.log;
+import static ballmerpeak.stargate.skeleton.SkeletonIO.yesNo;
+
 import ballmerpeak.stargate.tiles.ShotColor;
 import ballmerpeak.stargate.tiles.Tile;
-
-import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
 public class Player {
 
