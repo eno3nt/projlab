@@ -5,6 +5,8 @@ import ballmerpeak.stargate.Gate;
 import ballmerpeak.stargate.Player;
 import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
+import org.omg.PortableInterceptor.INACTIVE;
+
 public class SpecialWall extends Wall {
 
 	private ShotColor color;
@@ -26,7 +28,7 @@ public class SpecialWall extends Wall {
 		enter();
 		log("SpecialWall#canPlayerMoveHere");
 		boolean gateActive = gate.isActive();
-		boolean wallActive = yesNo("Is there a portal on the wall?");
+		boolean wallActive = ;
 		leave();
 		return (gateActive && wallActive);
 	}
@@ -51,5 +53,12 @@ public class SpecialWall extends Wall {
 		log("SpecialWall#setColor");
 		this.color = color;
 		leave();
+	}
+	
+	public boolean hasPortal() {
+		enter();
+		log("SpecialWall#hasPortal");
+		boolean ans = yesNo("Is there a portal on the wall?");
+		return ans;
 	}
 }
