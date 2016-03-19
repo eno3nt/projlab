@@ -72,4 +72,13 @@ public class Floor extends Tile {
 		}
 		leave();
 	}
+
+	@Override
+	public boolean canPlayerMoveHere() {
+		// TODO Auto-generated method stub
+		enter();
+		log("Floor#canPlayerMoveHere");
+		leave();
+		return true;
+	}
 }

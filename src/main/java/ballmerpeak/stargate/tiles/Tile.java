@@ -34,12 +34,7 @@ public abstract class Tile {
 		//leave();
 	}
 
-	public boolean canPlayerMoveHere() {
-		enter();
-		log("Tile#canPlayerMoveHere");
-		leave();
-		return true;
-	}
+	public abstract boolean canPlayerMoveHere();
 	
 	public void stepOnTile(Player player) {
 		enter();

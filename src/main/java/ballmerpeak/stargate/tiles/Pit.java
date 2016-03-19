@@ -20,4 +20,13 @@ public class Pit extends Floor {
 		leave();
 		return true;
 	}
+
+	@Override
+	public boolean canPlayerMoveHere() {
+		enter();
+		log("Pit#canPlayerMoveHere");
+		leave();
+		return true;
+	}
+
 }

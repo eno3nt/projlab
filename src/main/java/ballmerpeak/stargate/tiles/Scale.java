@@ -64,4 +64,14 @@ public class Scale extends Floor {
 		this.door = door;
 		leave();
 	}
+
+	@Override
+	public boolean canPlayerMoveHere() {
+		enter();
+		log("Scale#canPlayerMoveHere");
+		leave();
+		return true;
+	}
+	
+	
 }
