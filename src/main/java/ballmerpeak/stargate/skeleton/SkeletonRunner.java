@@ -115,6 +115,12 @@ public class SkeletonRunner {
 		}
 	}
 
+	static void floorPickupTest() {
+		setNextTile(new Floor());
+		if (ask("Should the player attempt to drop or pickup crate?")) {
+			game.receiveInput(PICKUP);
+		}
+	}
 	static void quit() {
 		game.receiveInput(QUIT);
 		System.exit(0);
@@ -131,10 +137,11 @@ public class SkeletonRunner {
 		System.out.println("2: step on scale test");
 		System.out.println("3: leave scale test");
 		System.out.println("4: door move test");
-		System.out.println("5: scale pickup test");
-		System.out.println("6: special wall move test");
-		System.out.println("7: pit move test");
-		System.out.println("8: shoot special wall test");
+		System.out.println("5: floor pickup test");
+		System.out.println("6: scale pickup test");
+		System.out.println("7: special wall move test");
+		System.out.println("8: pit move test");
+		System.out.println("9: shoot special wall test");
 		System.out.println("q: quit");
 		String ans = question("");
 		if (ans.toLowerCase().charAt(0) == 'q') {
@@ -158,15 +165,18 @@ public class SkeletonRunner {
 			doorMoveTest();
 			break;
 		case 5:
-			scalePickupTest();
+			floorPickupTest();
 			break;
 		case 6:
-			specialWallMoveTest();
+			scalePickupTest();
 			break;
 		case 7:
-			pitMoveTest();
+			specialWallMoveTest();
 			break;
 		case 8:
+			pitMoveTest();
+			break;
+		case 9:
 			shootSpecialWallTest();
 			break;
 		}
