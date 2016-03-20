@@ -30,7 +30,7 @@ public class Floor extends Tile {
 	public boolean hasCrate() {
 		enter();
 		log("Floor#hasCrate");
-		boolean answer = yesNo("Is there a crate on the floor?");
+		boolean answer = ask("Is there a crate on the floor?");
 		leave();
 		return answer;
 	}
@@ -65,7 +65,7 @@ public class Floor extends Tile {
 	public void stepOnTile(Player player) {
 		enter();
 		log("Floor#stepOnTile");
-		boolean answer = yesNo("Is there a ZPM on the floor?");
+		boolean answer = ask("Is there a ZPM on the floor?");
 		if (answer) {
 			player.pickupZPM();
 			ZPM = false;

@@ -34,7 +34,7 @@ public class Gate {
 	public boolean isActive() {
 		enter();
 		log("Gate#isActive");
-		boolean answer = yesNo("Is the gate active?");
+		boolean answer = ask("Is the gate active?");
 		leave();
 		return answer;
 	}

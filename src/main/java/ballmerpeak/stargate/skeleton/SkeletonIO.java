@@ -29,7 +29,7 @@ public class SkeletonIO {
 		System.out.println(msg);
 	}
 	
-	public static boolean yesNo(String q) {
+	public static boolean ask(String q) {
 		while (true) {
 			System.out.format("%s [Y/N]\n", q);
 			String n = scanner.next();

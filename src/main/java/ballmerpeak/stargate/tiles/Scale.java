@@ -11,11 +11,11 @@ public class Scale extends Floor {
 	public boolean pickupCrate(Player player) {
 		enter();
 		log("Scale#pickupCrate");
-		boolean didPickUpCrate = yesNo("Could the player pick up the crate?");
+		boolean didPickUpCrate = ask("Could the player pick up the crate?");
 		
 		if (didPickUpCrate) {
 			door.close();
-			boolean answer = yesNo("Is the player standing on the door?");
+			boolean answer = ask("Is the player standing on the door?");
 			if (answer) {
 				player.kill();
 			}
@@ -28,7 +28,7 @@ public class Scale extends Floor {
 	public boolean dropCrateHere(Player player) {
 		enter();
 		log("Scale#dropCrateHere");
-		boolean didDropCrate = yesNo("Could the player drop the crate?");
+		boolean didDropCrate = ask("Could the player drop the crate?");
 		if (didDropCrate) {
 			door.open();
 		}
@@ -48,7 +48,7 @@ public class Scale extends Floor {
 	public void leaveTile(Player player) {
 		enter();
 		log("Scae#leaveTile");
-		boolean hasCrate = yesNo("Is there a crate on the scale?");
+		boolean hasCrate = ask("Is there a crate on the scale?");
 		if (!hasCrate)
 			door.close();
 		leave();

@@ -19,101 +19,112 @@ import ballmerpeak.stargate.utils.MapLoader;
 import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
 public class SkeletonRunner {
-	
+
 	static final InputCommand MOVE_UP = new MoveCommand(Direction.UP);
 	static final InputCommand MOVE_DOWN = new MoveCommand(Direction.DOWN);
 	static final InputCommand MOVE_LEFT = new MoveCommand(Direction.LEFT);
 	static final InputCommand MOVE_RIGHT = new MoveCommand(Direction.RIGHT);
-	
+
 	static final InputCommand SHOOT_YELLOW = new ShootCommand(ShotColor.YELLOW);
 	static final InputCommand SHOOT_BLUE = new ShootCommand(ShotColor.BLUE);
-	
+
 	static final InputCommand PICKUP = new PickupCommand();
-	
-	static final Map<String, InputCommand> commandsMap = new HashMap<String, InputCommand>() {{
-		put("up", MOVE_UP); put("down", MOVE_DOWN); put("left", MOVE_LEFT); put("right", MOVE_RIGHT);
-		put("yellow", SHOOT_YELLOW); put("blue", SHOOT_BLUE);
-		put("pickup", PICKUP);
-	}};
-	
+
+	static final Map<String, InputCommand> commandsMap = new HashMap<String, InputCommand>() {
+		{
+			put("up", MOVE_UP);
+			put("down", MOVE_DOWN);
+			put("left", MOVE_LEFT);
+			put("right", MOVE_RIGHT);
+			put("yellow", SHOOT_YELLOW);
+			put("blue", SHOOT_BLUE);
+			put("pickup", PICKUP);
+		}
+	};
+
 	static MapLoader loader = new MapLoader();
 	static Game game = loader.getGame();
-	
+
 	static void floorTest() {
 		setNextTile(new Floor());
-		if (yesNo("Should the player move up?")) {
+		if (ask("Should the player move up?")) {
 			game.receiveInput(MOVE_UP);
 		}
 	}
-	
+
 	static void shootWallTest() {
 		setNextTile(new Wall());
-		if (yesNo("Should the player shoot?")) {
+		if (ask("Should the player shoot?")) {
 			game.receiveInput(SHOOT_YELLOW);
 		}
 	}
-	
+
 	static void shootSpecialWallTest() {
 		setNextTile(loader.wall1);
-		if (yesNo("Should the player shoot?")) {
+		if (ask("Should the player shoot?")) {
 			game.receiveInput(SHOOT_BLUE);
 		}
 	}
-	
+
 	static void stepOnScaleTest() {
 		setNextTile(loader.scale);
-		if (yesNo("Should the player move up?")) {
+		if (ask("Should the player move up?")) {
 			game.receiveInput(MOVE_UP);
 		}
 	}
-	
+
 	static void leaveScaleTest() {
 		loader.player.setTile(loader.scale);
 		loader.playerTile = loader.scale;
 		setNextTile(new Floor());
-		if (yesNo("Should the player move up?")) {
+		if (ask("Should the player move up?")) {
 			game.receiveInput(MOVE_UP);
 		}
 	}
-	
+
 	static void doorMoveTest() {
 		setNextTile(loader.door);
-		if (yesNo("Should the player move up?")) {
+		if (ask("Should the player move up?")) {
 			game.receiveInput(MOVE_UP);
 		}
 	}
-	
+
 	static void scalePickupTest() {
 		setNextTile(loader.scale);
-		if (yesNo("Should the player attempt to drop or pickup crate?")) {
+		if (ask("Should the player attempt to drop or pickup crate?")) {
 			game.receiveInput(PICKUP);
 		}
 	}
-	
+
 	static void specialWallMoveTest() {
 		setNextTile(loader.wall1);
-		if (yesNo("Should the player move up?")) {
+		if (ask("Should the player move up?")) {
 			game.receiveInput(MOVE_UP);
 		}
 	}
-	
+
 	static void pitMoveTest() {
-		setNextTile(loader. pit);
-		if (yesNo("Should the player move up?")) {
+		setNextTile(loader.pit);
+		if (ask("Should the player move up?")) {
 			game.receiveInput(MOVE_UP);
 		}
 	}
-	
+
 	static void quit() {
-		game.didPlayerWin();
-		game.isPlayerAlive();
+		if (game.didPlayerWin()) {
+			log("the player won!");
+		} else if (game.isPlayerAlive()) {
+			log("the player died");
+		} else {
+			log("the player quit");
+		}
 		System.exit(0);
 	}
 
 	static void setNextTile(Tile tile) {
 		loader.getPlayerTile().setNeightborForDirection(Direction.UP, tile);
 	}
-	
+
 	static void menu() {
 		System.out.println("which test to run?");
 		System.out.println("0: floor move test");
@@ -132,18 +143,36 @@ public class SkeletonRunner {
 		}
 		int i = Integer.parseInt(ans);
 		switch (i) {
-		case 0: floorTest(); break;
-		case 1: shootWallTest(); break;
-		case 2: stepOnScaleTest(); break;
-		case 3: leaveScaleTest(); break;
-		case 4: doorMoveTest(); break;
-		case 5: scalePickupTest(); break;
-		case 6: specialWallMoveTest(); break;
-		case 7: pitMoveTest(); break;
-		case 8: shootSpecialWallTest(); break;
+		case 0:
+			floorTest();
+			break;
+		case 1:
+			shootWallTest();
+			break;
+		case 2:
+			stepOnScaleTest();
+			break;
+		case 3:
+			leaveScaleTest();
+			break;
+		case 4:
+			doorMoveTest();
+			break;
+		case 5:
+			scalePickupTest();
+			break;
+		case 6:
+			specialWallMoveTest();
+			break;
+		case 7:
+			pitMoveTest();
+			break;
+		case 8:
+			shootSpecialWallTest();
+			break;
 		}
 	}
-	
+
 	public static void main(String... args) throws FileNotFoundException, IOException {
 		while (true) {
 			menu();

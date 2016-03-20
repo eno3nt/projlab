@@ -3,7 +3,7 @@ package ballmerpeak.stargate;
 import static ballmerpeak.stargate.skeleton.SkeletonIO.enter;
 import static ballmerpeak.stargate.skeleton.SkeletonIO.leave;
 import static ballmerpeak.stargate.skeleton.SkeletonIO.log;
-import static ballmerpeak.stargate.skeleton.SkeletonIO.yesNo;
+import static ballmerpeak.stargate.skeleton.SkeletonIO.ask;
 
 import ballmerpeak.stargate.tiles.ShotColor;
 import ballmerpeak.stargate.tiles.Tile;
@@ -28,7 +28,7 @@ public class Player {
 	public boolean isAlive() {
 		enter();
 		log("Player#isAlive");
-		boolean ans = yesNo("Is Player alive?");
+		boolean ans = ask("Is Player alive?");
 		leave();
 		return ans;
 	}
@@ -89,7 +89,7 @@ public class Player {
 		enter();
 		log("Player#pickupCrate");
 		Tile nextTile = getTileFrontOfPlayer();
-		boolean answer = yesNo("Is the player carrying a crate?");
+		boolean answer = ask("Is the player carrying a crate?");
 		if (answer) {
 			if (nextTile.dropCrateHere(this))
 				carrying = false;

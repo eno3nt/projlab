@@ -38,7 +38,7 @@ public class Door extends Tile {
 	public boolean isOpen() {
 		enter();
 		log("Door#isOpen");
-		boolean answer = yesNo("Is the door open?");
+		boolean answer = ask("Is the door open?");
 		leave();
 		return answer;
 	}

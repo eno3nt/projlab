@@ -29,7 +29,7 @@ public class Game implements InputCommandHandler {
 	public boolean didPlayerWin() {
 		enter();
 		log("Game#didPlayerWin");
-		boolean answer = yesNo("Did the player win?");
+		boolean answer = ask("Did the player win?");
 		leave();
 		return answer;
 	}
