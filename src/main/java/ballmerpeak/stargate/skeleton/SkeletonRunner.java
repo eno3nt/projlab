@@ -117,8 +117,6 @@ public class SkeletonRunner {
 
 	static void quit() {
 		game.receiveInput(QUIT);
-
-
 		System.exit(0);
 	}
 

@@ -18,12 +18,16 @@ public class QuitCommand implements InputCommand {
 	public void execute(Player player) {
 		enter();
 		log("QuitCommand#execute");
-		if (!game.isPlayerAlive()) {
+		if (game.isPlayerAlive()) {
+			if (game.didPlayerWin()) {
+				log("the player won");
+			} else {
+				log("the player quit");
+			}
+		} else {
 			log("the player died");
-		} else if(game.didPlayerWin()) {
-			log("the player won");
 		}
-		System.exit(0);
+		leave();
 	}
 
 }
