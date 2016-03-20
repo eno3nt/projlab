@@ -37,7 +37,8 @@ public class Game implements InputCommandHandler {
 	public boolean isPlayerAlive() {
 		enter();
 		log("Game#isPlayerAlive");
+		boolean alive =  player.isAlive();
 		leave();
-		return player.isAlive();
+		return alive;
 	}
 }

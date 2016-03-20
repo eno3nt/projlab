@@ -9,6 +9,7 @@ import ballmerpeak.stargate.Game;
 import ballmerpeak.stargate.commands.InputCommand;
 import ballmerpeak.stargate.commands.MoveCommand;
 import ballmerpeak.stargate.commands.PickupCommand;
+import ballmerpeak.stargate.commands.QuitCommand;
 import ballmerpeak.stargate.commands.ShootCommand;
 import ballmerpeak.stargate.tiles.Floor;
 import ballmerpeak.stargate.tiles.ShotColor;
@@ -19,6 +20,9 @@ import ballmerpeak.stargate.utils.MapLoader;
 import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
 public class SkeletonRunner {
+	
+	static MapLoader loader = new MapLoader();
+	static Game game = loader.getGame();
 
 	static final InputCommand MOVE_UP = new MoveCommand(Direction.UP);
 	static final InputCommand MOVE_DOWN = new MoveCommand(Direction.DOWN);
@@ -30,6 +34,8 @@ public class SkeletonRunner {
 
 	static final InputCommand PICKUP = new PickupCommand();
 
+	static final InputCommand QUIT = new QuitCommand(game);
+
 	static final Map<String, InputCommand> commandsMap = new HashMap<String, InputCommand>() {
 		{
 			put("up", MOVE_UP);
@@ -39,11 +45,10 @@ public class SkeletonRunner {
 			put("yellow", SHOOT_YELLOW);
 			put("blue", SHOOT_BLUE);
 			put("pickup", PICKUP);
+			put("quit", QUIT);
 		}
 	};
 
-	static MapLoader loader = new MapLoader();
-	static Game game = loader.getGame();
 
 	static void floorTest() {
 		setNextTile(new Floor());
@@ -111,13 +116,9 @@ public class SkeletonRunner {
 	}
 
 	static void quit() {
-		if (game.didPlayerWin()) {
-			log("the player won!");
-		} else if (game.isPlayerAlive()) {
-			log("the player died");
-		} else {
-			log("the player quit");
-		}
+		game.receiveInput(QUIT);
+
+
 		System.exit(0);
 	}
 
