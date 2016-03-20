@@ -11,7 +11,10 @@ public class QuitCommand implements InputCommand {
 	private Game game;
 
 	public QuitCommand(Game game) {
+		enter();
+		log("QuitCommand#QuitCommand");
 		this.game = game;
+		leave();
 	}
 
 	@Override

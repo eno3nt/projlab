@@ -10,10 +10,10 @@ public class ShootCommand implements InputCommand {
 	private ShotColor color;
 
 	public ShootCommand(ShotColor color) {
-//		enter();
-//		log("ShootCommand#ShootCommand");
+		enter();
+		log("ShootCommand#ShootCommand");
 		this.color = color;
-//		leave();
+		leave();
 	}
 
 	@Override

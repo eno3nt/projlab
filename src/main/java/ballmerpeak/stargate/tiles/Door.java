@@ -7,6 +7,12 @@ import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 public class Door extends Tile {
 
 	private boolean open = false;
+	
+	public Door() {
+		enter();
+		log("Door#Door");
+		leave();
+	}
 
 	@Override
 	public boolean canPlayerMoveHere() {

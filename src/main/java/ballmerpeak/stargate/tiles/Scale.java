@@ -7,6 +7,13 @@ public class Scale extends Floor {
 
 	private Door door;
 	
+	public Scale() {
+		super();
+		enter();
+		log("Scale#Scale");
+		leave();
+	}
+	
 	@Override
 	public boolean pickupCrate(Player player) {
 		enter();

@@ -10,6 +10,7 @@ import ballmerpeak.stargate.tiles.Pit;
 import ballmerpeak.stargate.tiles.Scale;
 import ballmerpeak.stargate.tiles.SpecialWall;
 import ballmerpeak.stargate.tiles.Tile;
+import ballmerpeak.stargate.tiles.Wall;
 
 import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
@@ -28,6 +29,8 @@ public class MapLoader {
 	
 	public final SpecialWall wall1, wall2;
 	
+	public final Wall wall;
+	
 	public MapLoader() {
 		enter();
 		log("MapLoader#MapLoader");
@@ -41,6 +44,8 @@ public class MapLoader {
 		scale.setDoor(door);
 		
 		pit = new Pit();
+		
+		wall = new Wall();
 		
 		player = new Player();
 		playerTile = new Floor();

@@ -15,12 +15,12 @@ public class SpecialWall extends Wall {
 	private final Gate gate;
 
 	public SpecialWall(Direction dir, Gate gate) {
-		// enter();
-		// log("SpecialWall#SpecialWall");
+		enter();
+		log("SpecialWall#SpecialWall");
 		color = ShotColor.INACTIVE;
 		direction = dir;
 		this.gate = gate;
-		// leave();
+		leave();
 	}
 
 	@Override
@@ -28,7 +28,7 @@ public class SpecialWall extends Wall {
 		enter();
 		log("SpecialWall#canPlayerMoveHere");
 		boolean gateActive = gate.isActive();
-		boolean wallActive = ask("Is there a portal on the wall?");;
+		boolean wallActive = ask("Is there a portal on the wall?");
 		leave();
 		return (gateActive && wallActive);
 	}
@@ -62,7 +62,7 @@ public class SpecialWall extends Wall {
 		this.color = color;
 		leave();
 	}
-	
+
 	private void teleport(Player player) {
 		enter();
 		log("SpecialWall#teleport");

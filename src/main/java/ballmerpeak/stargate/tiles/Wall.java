@@ -5,6 +5,13 @@ import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
 public class Wall extends Tile {
 	
+	public Wall() {
+		super();
+		enter();
+		log("Wall#Wall");
+		leave();
+	}
+	
 	@Override
 	public boolean canPlayerMoveHere() {
 		enter();

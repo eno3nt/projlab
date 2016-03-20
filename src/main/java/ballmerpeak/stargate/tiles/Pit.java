@@ -4,6 +4,13 @@ import ballmerpeak.stargate.Player;
 import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
 public class Pit extends Floor {
+	
+	public Pit() {
+		super();
+		enter();
+		log("Pit#Pit");
+		leave();
+	}
 
 	@Override
 	public void stepOnTile(Player player) {

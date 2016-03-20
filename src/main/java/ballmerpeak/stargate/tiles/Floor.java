@@ -9,10 +9,10 @@ public class Floor extends Tile {
 	private boolean ZPM;
 
 	public Floor() {
-//		enter();
-//		log("Floor#Floor");
+		enter();
+		log("Floor#Floor");
 		hasCrate = ZPM = false;
-//		leave();
+		leave();
 	}
 	
 	public static Floor floorWithZPM() {
@@ -75,7 +75,6 @@ public class Floor extends Tile {
 
 	@Override
 	public boolean canPlayerMoveHere() {
-		// TODO Auto-generated method stub
 		enter();
 		log("Floor#canPlayerMoveHere");
 		leave();
