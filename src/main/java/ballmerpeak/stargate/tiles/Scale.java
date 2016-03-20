@@ -51,10 +51,6 @@ public class Scale extends Floor {
 		boolean hasCrate = yesNo("Is there a crate on the scale?");
 		if (!hasCrate)
 			door.close();
-		boolean standing = yesNo("Is the player standing on the door?");
-		if (!hasCrate && standing) {
-			player.kill();
-		}
 		leave();
 	}
 
