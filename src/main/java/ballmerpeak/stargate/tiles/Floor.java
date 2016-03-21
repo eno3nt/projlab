@@ -27,7 +27,7 @@ public class Floor extends Tile {
 		return floor;
 	}
 	
-	public boolean hasCrate() {
+	protected boolean hasCrate() {
 		enter();
 		log("Floor#hasCrate");
 		boolean answer = ask("Is there a crate on the floor?");

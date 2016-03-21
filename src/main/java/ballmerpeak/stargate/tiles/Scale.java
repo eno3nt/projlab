@@ -18,7 +18,7 @@ public class Scale extends Floor {
 	public boolean pickupCrate(Player player) {
 		enter();
 		log("Scale#pickupCrate");
-		boolean didPickUpCrate = ask("Could the player pick up the crate?");
+		boolean didPickUpCrate = super.pickupCrate(player);
 		
 		if (didPickUpCrate) {
 			door.close();
@@ -35,7 +35,7 @@ public class Scale extends Floor {
 	public boolean dropCrateHere(Player player) {
 		enter();
 		log("Scale#dropCrateHere");
-		boolean didDropCrate = ask("Could the player drop the crate?");
+		boolean didDropCrate = super.dropCrateHere(player);
 		if (didDropCrate) {
 			door.open();
 		}
