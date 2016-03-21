@@ -40,7 +40,7 @@ public class Floor extends Tile {
 		enter();
 		log("Floor#dropCrateHere");
 		if (!hasCrate()) {
-			hasCrate = true;
+			player.setCarrying(false);
 			leave();
 			return true;
 		}
@@ -53,7 +53,7 @@ public class Floor extends Tile {
 		enter();
 		log("Floor#pickupCrate");
 		if (hasCrate()) {
-			hasCrate = false;
+			player.setCarrying(true);
 			leave();
 			return true;
 		}
@@ -68,7 +68,6 @@ public class Floor extends Tile {
 		boolean answer = ask("Is there a ZPM on the floor?");
 		if (answer) {
 			player.pickupZPM();
-			ZPM = false;
 		}
 		leave();
 	}

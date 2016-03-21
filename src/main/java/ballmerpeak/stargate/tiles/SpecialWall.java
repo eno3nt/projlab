@@ -59,7 +59,6 @@ public class SpecialWall extends Wall {
 	public void setColor(ShotColor color) {
 		enter();
 		log("SpecialWall#setColor");
-		this.color = color;
 		leave();
 	}
 

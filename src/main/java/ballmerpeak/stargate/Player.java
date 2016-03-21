@@ -107,6 +107,12 @@ public class Player {
 		nextTile.shootIt(color, direction);
 		leave();
 	}
+	
+	public void setCarrying(boolean b) {
+		enter();
+		log("Player#setCarrying");
+		leave();
+	}
 
 	private Tile getTileFrontOfPlayer() {
 		return tile.getNeighborForDirection(direction);
