@@ -3,8 +3,15 @@ package ballmerpeak.stargate.tiles;
 import ballmerpeak.stargate.Player;
 import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Pit.
+ */
 public class Pit extends Floor {
 	
+	/**
+	 * Instantiates a new pit.
+	 */
 	public Pit() {
 		super();
 		enter();
@@ -12,6 +19,9 @@ public class Pit extends Floor {
 		leave();
 	}
 
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Floor#stepOnTile(ballmerpeak.stargate.Player)
+	 */
 	@Override
 	public void stepOnTile(Player player) {
 		enter();
@@ -20,6 +30,9 @@ public class Pit extends Floor {
 		leave();
 	}
 	
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Floor#dropCrateHere(ballmerpeak.stargate.Player)
+	 */
 	@Override
 	public boolean dropCrateHere(Player player) {
 		enter();
@@ -28,6 +41,9 @@ public class Pit extends Floor {
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Floor#canPlayerMoveHere()
+	 */
 	@Override
 	public boolean canPlayerMoveHere() {
 		enter();

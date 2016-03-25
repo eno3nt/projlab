@@ -7,13 +7,27 @@ import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
 import org.omg.PortableInterceptor.INACTIVE;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SpecialWall.
+ */
 public class SpecialWall extends Wall {
 
+	/** The color. */
 	private ShotColor color;
+	
+	/** The direction. */
 	private final Direction direction;
 
+	/** The gate. */
 	private final Gate gate;
 
+	/**
+	 * Instantiates a new special wall.
+	 *
+	 * @param dir the dir
+	 * @param gate the gate
+	 */
 	public SpecialWall(Direction dir, Gate gate) {
 		enter();
 		log("SpecialWall#SpecialWall");
@@ -23,6 +37,9 @@ public class SpecialWall extends Wall {
 		leave();
 	}
 
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Wall#canPlayerMoveHere()
+	 */
 	@Override
 	public boolean canPlayerMoveHere() {
 		enter();
@@ -33,6 +50,9 @@ public class SpecialWall extends Wall {
 		return (gateActive && wallActive);
 	}
 
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Tile#stepOnTile(ballmerpeak.stargate.Player)
+	 */
 	@Override
 	public void stepOnTile(Player player) {
 		enter();
@@ -48,6 +68,9 @@ public class SpecialWall extends Wall {
 		leave();
 	}
 
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Wall#shootIt(ballmerpeak.stargate.tiles.ShotColor, ballmerpeak.stargate.Direction)
+	 */
 	@Override
 	public void shootIt(ShotColor color, Direction dir) {
 		enter();
@@ -56,12 +79,22 @@ public class SpecialWall extends Wall {
 		leave();
 	}
 
+	/**
+	 * Sets the color.
+	 *
+	 * @param color the new color
+	 */
 	public void setColor(ShotColor color) {
 		enter();
 		log("SpecialWall#setColor");
 		leave();
 	}
 
+	/**
+	 * Teleport.
+	 *
+	 * @param player the player
+	 */
 	private void teleport(Player player) {
 		enter();
 		log("SpecialWall#teleport");

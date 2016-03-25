@@ -3,11 +3,21 @@ package ballmerpeak.stargate.tiles;
 import ballmerpeak.stargate.Player;
 import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Floor.
+ */
 public class Floor extends Tile {
 	
+	/** The has crate. */
 	private boolean hasCrate;
+	
+	/** The zpm. */
 	private boolean ZPM;
 
+	/**
+	 * Instantiates a new floor.
+	 */
 	public Floor() {
 		enter();
 		log("Floor#Floor");
@@ -15,18 +25,33 @@ public class Floor extends Tile {
 		leave();
 	}
 	
+	/**
+	 * Floor with zpm.
+	 *
+	 * @return the floor
+	 */
 	public static Floor floorWithZPM() {
 		Floor floor = new Floor();
 		floor.ZPM = true;
 		return floor;
 	}
 	
+	/**
+	 * Floor with crate.
+	 *
+	 * @return the floor
+	 */
 	public static Floor floorWithCrate() {
 		Floor floor = new Floor();
 		floor.hasCrate = true;
 		return floor;
 	}
 	
+	/**
+	 * Checks for crate.
+	 *
+	 * @return true, if successful
+	 */
 	protected boolean hasCrate() {
 		enter();
 		log("Floor#hasCrate");
@@ -35,6 +60,9 @@ public class Floor extends Tile {
 		return answer;
 	}
 	
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Tile#dropCrateHere(ballmerpeak.stargate.Player)
+	 */
 	@Override
 	public boolean dropCrateHere(Player player) {
 		enter();
@@ -48,6 +76,9 @@ public class Floor extends Tile {
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Tile#pickupCrate(ballmerpeak.stargate.Player)
+	 */
 	@Override
 	public boolean pickupCrate(Player player) {
 		enter();
@@ -61,6 +92,9 @@ public class Floor extends Tile {
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Tile#stepOnTile(ballmerpeak.stargate.Player)
+	 */
 	@Override
 	public void stepOnTile(Player player) {
 		enter();
@@ -72,6 +106,9 @@ public class Floor extends Tile {
 		leave();
 	}
 
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Tile#canPlayerMoveHere()
+	 */
 	@Override
 	public boolean canPlayerMoveHere() {
 		enter();

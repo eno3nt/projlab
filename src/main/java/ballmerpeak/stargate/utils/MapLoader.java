@@ -14,23 +14,42 @@ import ballmerpeak.stargate.tiles.Wall;
 
 import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MapLoader.
+ */
 public class MapLoader {
 
+	/** The game. */
 	public final Game game;
+	
+	/** The player. */
 	public final Player player;
+	
+	/** The player tile. */
 	public Tile playerTile;
 	
+	/** The door. */
 	public final Door door;
+	
+	/** The scale. */
 	public final Scale scale;
 	
+	/** The pit. */
 	public final Pit pit;
 	
+	/** The gate. */
 	public final Gate gate;
 	
+	/** The wall2. */
 	public final SpecialWall wall1, wall2;
 	
+	/** The wall. */
 	public final Wall wall;
 	
+	/**
+	 * Instantiates a new map loader.
+	 */
 	public MapLoader() {
 		enter();
 		log("MapLoader#MapLoader");
@@ -55,6 +74,11 @@ public class MapLoader {
 		leave();
 	}
 	
+	/**
+	 * Gets the game.
+	 *
+	 * @return the game
+	 */
 	public Game getGame() {
 		enter();
 		log("MapLoader#getGame");
@@ -62,6 +86,11 @@ public class MapLoader {
 		return game;
 	}
 	
+	/**
+	 * Gets the player tile.
+	 *
+	 * @return the player tile
+	 */
 	public Tile getPlayerTile() {
 		return playerTile;
 	}

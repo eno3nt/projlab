@@ -3,10 +3,18 @@ package ballmerpeak.stargate.tiles;
 import ballmerpeak.stargate.Player;
 import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Scale.
+ */
 public class Scale extends Floor {
 
+	/** The door. */
 	private Door door;
 	
+	/**
+	 * Instantiates a new scale.
+	 */
 	public Scale() {
 		super();
 		enter();
@@ -14,6 +22,9 @@ public class Scale extends Floor {
 		leave();
 	}
 	
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Floor#pickupCrate(ballmerpeak.stargate.Player)
+	 */
 	@Override
 	public boolean pickupCrate(Player player) {
 		enter();
@@ -31,6 +42,9 @@ public class Scale extends Floor {
 		return didPickUpCrate;
 	}
 
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Floor#dropCrateHere(ballmerpeak.stargate.Player)
+	 */
 	@Override
 	public boolean dropCrateHere(Player player) {
 		enter();
@@ -43,6 +57,9 @@ public class Scale extends Floor {
 		return didDropCrate;
 	}
 
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Floor#stepOnTile(ballmerpeak.stargate.Player)
+	 */
 	@Override
 	public void stepOnTile(Player player) {
 		enter();
@@ -51,6 +68,9 @@ public class Scale extends Floor {
 		leave();;
 	}
 
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Tile#leaveTile(ballmerpeak.stargate.Player)
+	 */
 	@Override
 	public void leaveTile(Player player) {
 		enter();
@@ -61,6 +81,11 @@ public class Scale extends Floor {
 		leave();
 	}
 
+	/**
+	 * Sets the door.
+	 *
+	 * @param door the new door
+	 */
 	public void setDoor(Door door) {
 		enter();
 		log("Scale#setDoor");
@@ -68,6 +93,9 @@ public class Scale extends Floor {
 		leave();
 	}
 
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Floor#canPlayerMoveHere()
+	 */
 	@Override
 	public boolean canPlayerMoveHere() {
 		enter();

@@ -8,14 +8,30 @@ import static ballmerpeak.stargate.skeleton.SkeletonIO.ask;
 import ballmerpeak.stargate.tiles.ShotColor;
 import ballmerpeak.stargate.tiles.Tile;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Player.
+ */
 public class Player {
 
+	/** The direction. */
 	private Direction direction = Direction.UP;
+	
+	/** The carrying. */
 	private boolean carrying;
+	
+	/** The alive. */
 	private boolean alive;
+	
+	/** The ZP ms carried. */
 	private int ZPMsCarried;
+	
+	/** The tile. */
 	private Tile tile;
 
+	/**
+	 * Instantiates a new player.
+	 */
 	public Player() {
 		enter();
 		log("Player#player");
@@ -25,6 +41,11 @@ public class Player {
 		leave();
 	}
 
+	/**
+	 * Checks if is alive.
+	 *
+	 * @return true, if is alive
+	 */
 	public boolean isAlive() {
 		enter();
 		log("Player#isAlive");
@@ -33,12 +54,20 @@ public class Player {
 		return ans;
 	}
 
+	/**
+	 * Kill.
+	 */
 	public void kill() {
 		enter();
 		log("Player#kill");
 		leave();
 	}
 
+	/**
+	 * Sets the direction.
+	 *
+	 * @param direction the new direction
+	 */
 	public void setDirection(Direction direction) {
 		enter();
 		log("Player#setDirection");
@@ -46,6 +75,11 @@ public class Player {
 		leave();
 	}
 
+	/**
+	 * Gets the ZP ms carried.
+	 *
+	 * @return the ZP ms carried
+	 */
 	public int getZPMsCarried() {
 		enter();
 		log("Player#getZPMSCarried");
@@ -53,12 +87,20 @@ public class Player {
 		return ZPMsCarried;
 	}
 
+	/**
+	 * Pickup zpm.
+	 */
 	public void pickupZPM() {
 		enter();
 		log("Player#pickupZPM");
 		leave();
 	}
 
+	/**
+	 * Gets the tile.
+	 *
+	 * @return the tile
+	 */
 	public Tile getTile() {
 		enter();
 		log("Player#getTile");
@@ -66,6 +108,11 @@ public class Player {
 		return tile;
 	}
 
+	/**
+	 * Sets the tile.
+	 *
+	 * @param tile the new tile
+	 */
 	public void setTile(Tile tile) {
 		enter();
 		log("Player#setTile");
@@ -73,6 +120,11 @@ public class Player {
 		leave();
 	}
 
+	/**
+	 * Move.
+	 *
+	 * @param direction the direction
+	 */
 	public void move(Direction direction) {
 		enter();
 		log("Player#move");
@@ -85,6 +137,9 @@ public class Player {
 		leave();
 	}
 
+	/**
+	 * Pickup crate.
+	 */
 	public void pickupCrate() {
 		enter();
 		log("Player#pickupCrate");
@@ -100,6 +155,11 @@ public class Player {
 		leave();
 	}
 
+	/**
+	 * Shoot.
+	 *
+	 * @param color the color
+	 */
 	public void shoot(ShotColor color) {
 		enter();
 		log("Player#shoot");
@@ -108,12 +168,22 @@ public class Player {
 		leave();
 	}
 	
+	/**
+	 * Sets the carrying.
+	 *
+	 * @param b the new carrying
+	 */
 	public void setCarrying(boolean b) {
 		enter();
 		log("Player#setCarrying");
 		leave();
 	}
 
+	/**
+	 * Gets the tile front of player.
+	 *
+	 * @return the tile front of player
+	 */
 	private Tile getTileFrontOfPlayer() {
 		return tile.getNeighborForDirection(direction);
 	}

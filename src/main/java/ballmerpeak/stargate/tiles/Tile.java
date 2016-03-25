@@ -7,9 +7,18 @@ import ballmerpeak.stargate.Direction;
 import ballmerpeak.stargate.Player;
 import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Tile.
+ */
 public abstract class Tile {
+	
+	/** The neighbors. */
 	private List<Tile> neighbors;
 	
+	/**
+	 * Instantiates a new tile.
+	 */
 	public Tile() {
 //		enter();
 //		log("Tile#Tile");
@@ -20,6 +29,12 @@ public abstract class Tile {
 //		leave();
 	}
 	
+	/**
+	 * Gets the neighbor for direction.
+	 *
+	 * @param dir the dir
+	 * @return the neighbor for direction
+	 */
 	public Tile getNeighborForDirection(Direction dir) {
 		enter();
 		log("Tile#getNeighborForDirection");
@@ -27,6 +42,12 @@ public abstract class Tile {
 		return neighbors.get(dir.ordinal());
 	}
 	
+	/**
+	 * Sets the neightbor for direction.
+	 *
+	 * @param dir the dir
+	 * @param tile the tile
+	 */
 	public void setNeightborForDirection(Direction dir, Tile tile) {
 		enter();
 		log("Tile#setNeighborForDirection");
@@ -34,20 +55,41 @@ public abstract class Tile {
 		leave();
 	}
 
+	/**
+	 * Can player move here.
+	 *
+	 * @return true, if successful
+	 */
 	public abstract boolean canPlayerMoveHere();
 	
+	/**
+	 * Step on tile.
+	 *
+	 * @param player the player
+	 */
 	public void stepOnTile(Player player) {
 		enter();
 		log("Tile#stepOnTile");
 		leave();
 	}
 	
+	/**
+	 * Leave tile.
+	 *
+	 * @param player the player
+	 */
 	public void leaveTile(Player player) {
 		enter();
 		log("Tile#leaveTile");
 		leave();
 	}
 	
+	/**
+	 * Drop crate here.
+	 *
+	 * @param player the player
+	 * @return true, if successful
+	 */
 	public boolean dropCrateHere(Player player) {
 		enter();
 		log("Tile#dropCrateHere");
@@ -55,6 +97,12 @@ public abstract class Tile {
 		return false;
 	}
 	
+	/**
+	 * Pickup crate.
+	 *
+	 * @param player the player
+	 * @return true, if successful
+	 */
 	public boolean pickupCrate(Player player) {
 		enter();
 		log("Tile#pickupCrate");
@@ -62,6 +110,12 @@ public abstract class Tile {
 		return false;
 	}
 	
+	/**
+	 * Shoot it.
+	 *
+	 * @param color the color
+	 * @param dir the dir
+	 */
 	public void shootIt(ShotColor color, Direction dir) {
 		enter();
 		log("Tile#shootIt");

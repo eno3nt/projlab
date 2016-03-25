@@ -4,16 +4,27 @@ import ballmerpeak.stargate.Direction;
 import ballmerpeak.stargate.Player;
 import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Door.
+ */
 public class Door extends Tile {
 
+	/** The open. */
 	private boolean open = false;
 	
+	/**
+	 * Instantiates a new door.
+	 */
 	public Door() {
 		enter();
 		log("Door#Door");
 		leave();
 	}
 
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Tile#canPlayerMoveHere()
+	 */
 	@Override
 	public boolean canPlayerMoveHere() {
 		enter();
@@ -23,6 +34,9 @@ public class Door extends Tile {
 		return isopen;
 	}
 
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Tile#stepOnTile(ballmerpeak.stargate.Player)
+	 */
 	@Override
 	public void stepOnTile(Player player) {
 		enter();
@@ -32,6 +46,9 @@ public class Door extends Tile {
 		leave();
 	}
 
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Tile#shootIt(ballmerpeak.stargate.tiles.ShotColor, ballmerpeak.stargate.Direction)
+	 */
 	@Override
 	public void shootIt(ShotColor color, Direction dir) {
 		enter();
@@ -41,6 +58,11 @@ public class Door extends Tile {
 		leave();
 	}
 
+	/**
+	 * Checks if is open.
+	 *
+	 * @return true, if is open
+	 */
 	public boolean isOpen() {
 		enter();
 		log("Door#isOpen");
@@ -49,12 +71,18 @@ public class Door extends Tile {
 		return answer;
 	}
 
+	/**
+	 * Close.
+	 */
 	public void close() {
 		enter();
 		log("Door#close");
 		leave();
 	}
 
+	/**
+	 * Open.
+	 */
 	public void open() {
 		enter();
 		log("Door#open");

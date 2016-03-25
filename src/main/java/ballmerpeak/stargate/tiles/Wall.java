@@ -3,8 +3,15 @@ package ballmerpeak.stargate.tiles;
 import ballmerpeak.stargate.Direction;
 import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Wall.
+ */
 public class Wall extends Tile {
 	
+	/**
+	 * Instantiates a new wall.
+	 */
 	public Wall() {
 		super();
 		enter();
@@ -12,6 +19,9 @@ public class Wall extends Tile {
 		leave();
 	}
 	
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Tile#canPlayerMoveHere()
+	 */
 	@Override
 	public boolean canPlayerMoveHere() {
 		enter();
@@ -20,6 +30,9 @@ public class Wall extends Tile {
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see ballmerpeak.stargate.tiles.Tile#shootIt(ballmerpeak.stargate.tiles.ShotColor, ballmerpeak.stargate.Direction)
+	 */
 	@Override
 	public void shootIt(ShotColor color, Direction dir) {
 		enter();
