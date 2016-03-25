@@ -25,30 +25,12 @@ public class SkeletonRunner {
 	static Game game = loader.getGame();
 
 	static final InputCommand MOVE_UP = new MoveCommand(Direction.UP);
-//	static final InputCommand MOVE_DOWN = new MoveCommand(Direction.DOWN);
-//	static final InputCommand MOVE_LEFT = new MoveCommand(Direction.LEFT);
-//	static final InputCommand MOVE_RIGHT = new MoveCommand(Direction.RIGHT);
 
 	static final InputCommand SHOOT_YELLOW = new ShootCommand(ShotColor.YELLOW);
-//	static final InputCommand SHOOT_BLUE = new ShootCommand(ShotColor.BLUE);
 
 	static final InputCommand PICKUP = new PickupCommand();
 
 	static final InputCommand QUIT = new QuitCommand(game);
-
-	static final Map<String, InputCommand> commandsMap = new HashMap<String, InputCommand>() {
-		{
-			put("up", MOVE_UP);
-//			put("down", MOVE_DOWN);
-//			put("left", MOVE_LEFT);
-//			put("right", MOVE_RIGHT);
-			put("yellow", SHOOT_YELLOW);
-//			put("blue", SHOOT_BLUE);
-			put("pickup", PICKUP);
-			put("quit", QUIT);
-		}
-	};
-
 
 	static void floorTest() {
 		setNextTile(new Floor());

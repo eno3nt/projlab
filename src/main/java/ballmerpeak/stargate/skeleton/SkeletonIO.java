@@ -42,31 +42,8 @@ public class SkeletonIO {
 		}
 	}
 	
-	public static Direction direction(String q) {
-		indent();
-		while (true) {
-			System.out.format("%s [U/D/L/R]\n");
-			String n = scanner.next();
-			switch (n.toLowerCase().charAt(0)) {
-			case 'u':
-				return Direction.UP;
-			case 'd':
-				return Direction.DOWN;
-			case 'l':
-				return Direction.LEFT;
-			case 'r':
-				return Direction.RIGHT;
-			}
-		}
-	}
-	
 	public static String question(String q) {
 		System.out.println(q);
 		return scanner.next();
-	}
-	
-	public static int Int() {
-		System.out.print("0-9");
-		return scanner.nextInt();
 	}
 }
