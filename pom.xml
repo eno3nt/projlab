@@ -21,7 +21,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>ballmerpeak.stargate.gui.GameWindow</mainClass>
+							<mainClass>skeleton.SkeletonRunner</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
