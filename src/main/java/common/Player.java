@@ -1,12 +1,8 @@
-package ballmerpeak.stargate;
+package common;
+import tiles.ShotColor;
+import tiles.Tile;
 
-import static ballmerpeak.stargate.skeleton.SkeletonIO.enter;
-import static ballmerpeak.stargate.skeleton.SkeletonIO.leave;
-import static ballmerpeak.stargate.skeleton.SkeletonIO.log;
-import static ballmerpeak.stargate.skeleton.SkeletonIO.ask;
-
-import ballmerpeak.stargate.tiles.ShotColor;
-import ballmerpeak.stargate.tiles.Tile;
+import static skeleton.SkeletonIO.*;
 
 // TODO: Auto-generated Javadoc
 /**

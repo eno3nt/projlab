@@ -1,6 +1,5 @@
-package ballmerpeak.stargate.commands;
-
-import ballmerpeak.stargate.Player;
+package commands;
+import common.Player;
 
 // TODO: Auto-generated Javadoc
 /**

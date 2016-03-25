@@ -1,7 +1,4 @@
-package ballmerpeak.stargate;
-
-import ballmerpeak.stargate.commands.InputCommand;
-
+package commands;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface InputCommandHandler.

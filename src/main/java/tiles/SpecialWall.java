@@ -1,11 +1,11 @@
-package ballmerpeak.stargate.tiles;
+package tiles;
 
-import ballmerpeak.stargate.Direction;
-import ballmerpeak.stargate.Gate;
-import ballmerpeak.stargate.Player;
-import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
 
-import org.omg.PortableInterceptor.INACTIVE;
+import static skeleton.SkeletonIO.*;
+
+import common.Direction;
+import common.Gate;
+import common.Player;
 
 // TODO: Auto-generated Javadoc
 /**

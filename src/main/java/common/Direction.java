@@ -1,4 +1,5 @@
-package ballmerpeak.stargate;
+package common;
+
 
 /**
  * The Enum Direction.

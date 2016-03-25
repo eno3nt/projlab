@@ -1,8 +1,7 @@
-package ballmerpeak.stargate.tiles;
+package tiles;
+import common.Direction;
 
-import ballmerpeak.stargate.Direction;
-import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
-
+import static skeleton.SkeletonIO.*;
 // TODO: Auto-generated Javadoc
 /**
  * The Class Wall.

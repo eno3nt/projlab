@@ -1,8 +1,7 @@
-package ballmerpeak.stargate.skeleton;
+package skeleton;
+
 
 import java.util.Scanner;
-
-import ballmerpeak.stargate.Direction;
 
 // TODO: Auto-generated Javadoc
 /**

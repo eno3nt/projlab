@@ -1,10 +1,8 @@
-package ballmerpeak.stargate.commands;
+package commands;
+import static skeleton.SkeletonIO.*;
 
-import ballmerpeak.stargate.Direction;
-import ballmerpeak.stargate.Player;
-
-import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
-
+import common.Direction;
+import common.Player;
 // TODO: Auto-generated Javadoc
 /**
  * The Class MoveCommand.

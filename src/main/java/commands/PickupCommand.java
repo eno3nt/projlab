@@ -1,8 +1,8 @@
-package ballmerpeak.stargate.commands;
+package commands;
+import common.Player;
 
-import ballmerpeak.stargate.Player;
 
-import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
+import static skeleton.SkeletonIO.*;
 
 // TODO: Auto-generated Javadoc
 /**

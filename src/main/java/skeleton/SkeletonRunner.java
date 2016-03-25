@@ -1,23 +1,23 @@
-package ballmerpeak.stargate.skeleton;
+package skeleton;
 
+
+import static skeleton.SkeletonIO.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import ballmerpeak.stargate.Direction;
-import ballmerpeak.stargate.Game;
-import ballmerpeak.stargate.commands.InputCommand;
-import ballmerpeak.stargate.commands.MoveCommand;
-import ballmerpeak.stargate.commands.PickupCommand;
-import ballmerpeak.stargate.commands.QuitCommand;
-import ballmerpeak.stargate.commands.ShootCommand;
-import ballmerpeak.stargate.tiles.Floor;
-import ballmerpeak.stargate.tiles.ShotColor;
-import ballmerpeak.stargate.tiles.Tile;
-import ballmerpeak.stargate.tiles.Wall;
-import ballmerpeak.stargate.utils.MapLoader;
 
-import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
+import commands.InputCommand;
+import commands.MoveCommand;
+import commands.PickupCommand;
+import commands.QuitCommand;
+import commands.ShootCommand;
+import common.Direction;
+import common.Game;
+import tiles.Floor;
+import tiles.ShotColor;
+import tiles.Tile;
+import utils.MapLoader;
 
 // TODO: Auto-generated Javadoc
 /**

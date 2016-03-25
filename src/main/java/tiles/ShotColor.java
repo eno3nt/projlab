@@ -1,4 +1,5 @@
-package ballmerpeak.stargate.tiles;
+package tiles;
+
 
 // TODO: Auto-generated Javadoc
 /**

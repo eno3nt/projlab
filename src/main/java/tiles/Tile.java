@@ -1,11 +1,13 @@
-package ballmerpeak.stargate.tiles;
+package tiles;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
-import ballmerpeak.stargate.Direction;
-import ballmerpeak.stargate.Player;
-import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
+import common.Direction;
+import common.Player;
+
+import static skeleton.SkeletonIO.*;
 
 // TODO: Auto-generated Javadoc
 /**

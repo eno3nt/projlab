@@ -1,18 +1,17 @@
-package ballmerpeak.stargate.utils;
+package utils;
+import common.Direction;
+import common.Game;
+import common.Gate;
+import common.Player;
+import tiles.Door;
+import tiles.Floor;
+import tiles.Pit;
+import tiles.Scale;
+import tiles.SpecialWall;
+import tiles.Tile;
+import tiles.Wall;
 
-import ballmerpeak.stargate.Direction;
-import ballmerpeak.stargate.Game;
-import ballmerpeak.stargate.Gate;
-import ballmerpeak.stargate.Player;
-import ballmerpeak.stargate.tiles.Door;
-import ballmerpeak.stargate.tiles.Floor;
-import ballmerpeak.stargate.tiles.Pit;
-import ballmerpeak.stargate.tiles.Scale;
-import ballmerpeak.stargate.tiles.SpecialWall;
-import ballmerpeak.stargate.tiles.Tile;
-import ballmerpeak.stargate.tiles.Wall;
-
-import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
+import static skeleton.SkeletonIO.*;
 
 // TODO: Auto-generated Javadoc
 /**

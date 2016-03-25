@@ -1,11 +1,8 @@
-package ballmerpeak.stargate.commands;
+package commands;
+import common.Game;
+import common.Player;
 
-import ballmerpeak.stargate.Player;
-
-import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
-
-import ballmerpeak.stargate.Game;
-
+import static skeleton.SkeletonIO.*;
 // TODO: Auto-generated Javadoc
 /**
  * The Class QuitCommand.

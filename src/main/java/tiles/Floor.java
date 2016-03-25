@@ -1,8 +1,7 @@
-package ballmerpeak.stargate.tiles;
+package tiles;
+import common.Player;
 
-import ballmerpeak.stargate.Player;
-import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
-
+import static skeleton.SkeletonIO.*;
 // TODO: Auto-generated Javadoc
 /**
  * The Class Floor.

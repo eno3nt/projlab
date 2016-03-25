@@ -1,9 +1,8 @@
-package ballmerpeak.stargate;
+package common;
+import static skeleton.SkeletonIO.*;
 
-import ballmerpeak.stargate.commands.InputCommand;
-import ballmerpeak.stargate.skeleton.SkeletonIO;
-
-import static ballmerpeak.stargate.skeleton.SkeletonIO.*;
+import commands.InputCommand;
+import commands.InputCommandHandler;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -24,11 +23,11 @@ public class Game implements InputCommandHandler {
 	 * @param numberOfZPMs the number of zp ms
 	 */
 	public Game(Player player, int numberOfZPMs) {
-		SkeletonIO.enter();
-		SkeletonIO.log("Game#Game");
+		enter();
+		log("Game#Game");
 		this.player = player;
 		this.numberOfZPMs = numberOfZPMs;
-		SkeletonIO.leave();
+		leave();
 	}
 
 	/* (non-Javadoc)
@@ -36,10 +35,10 @@ public class Game implements InputCommandHandler {
 	 */
 	@Override
 	public void receiveInput(InputCommand command) {
-		SkeletonIO.enter();
-		SkeletonIO.log("Game#receiveInput");
+		enter();
+		log("Game#receiveInput");
 		command.execute(player);
-		SkeletonIO.leave();
+		leave();
 	}
 
 	/**
