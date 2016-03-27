@@ -9,7 +9,6 @@ import common.Player;
 
 import static skeleton.SkeletonIO.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Tile.
  */

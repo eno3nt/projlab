@@ -7,7 +7,6 @@ import common.Direction;
 import common.Gate;
 import common.Player;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class SpecialWall.
  */
@@ -37,7 +36,7 @@ public class SpecialWall extends Wall {
 		leave();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see ballmerpeak.stargate.tiles.Wall#canPlayerMoveHere()
 	 */
 	@Override
@@ -50,7 +49,7 @@ public class SpecialWall extends Wall {
 		return (gateActive && wallActive);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see ballmerpeak.stargate.tiles.Tile#stepOnTile(ballmerpeak.stargate.Player)
 	 */
 	@Override
@@ -68,7 +67,7 @@ public class SpecialWall extends Wall {
 		leave();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see ballmerpeak.stargate.tiles.Wall#shootIt(ballmerpeak.stargate.tiles.ShotColor, ballmerpeak.stargate.Direction)
 	 */
 	@Override

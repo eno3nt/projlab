@@ -3,7 +3,7 @@ import common.Direction;
 import common.Player;
 
 import static skeleton.SkeletonIO.*;
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class Door.
  */
@@ -21,7 +21,7 @@ public class Door extends Tile {
 		leave();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see ballmerpeak.stargate.tiles.Tile#canPlayerMoveHere()
 	 */
 	@Override
@@ -33,7 +33,7 @@ public class Door extends Tile {
 		return isopen;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see ballmerpeak.stargate.tiles.Tile#stepOnTile(ballmerpeak.stargate.Player)
 	 */
 	@Override

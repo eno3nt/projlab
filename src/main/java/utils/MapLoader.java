@@ -13,7 +13,6 @@ import tiles.Wall;
 
 import static skeleton.SkeletonIO.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class MapLoader.
  */
@@ -56,7 +55,7 @@ public class MapLoader {
 		wall1 = new SpecialWall(Direction.UP, gate);		
 		wall2 = new SpecialWall(Direction.UP, gate);		
 		gate.setBlueWall(wall1);
-		gate.setYelloWall(wall2);
+		gate.setYellowWall(wall2);
 		door = new Door();
 		scale = new Scale();
 		scale.setDoor(door);

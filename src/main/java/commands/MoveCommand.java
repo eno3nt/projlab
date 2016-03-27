@@ -3,7 +3,7 @@ import static skeleton.SkeletonIO.*;
 
 import common.Direction;
 import common.Player;
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class MoveCommand.
  */
@@ -24,7 +24,7 @@ public class MoveCommand implements InputCommand {
 		leave();
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see ballmerpeak.stargate.commands.InputCommand#execute(ballmerpeak.stargate.Player)
 	 */
 	@Override

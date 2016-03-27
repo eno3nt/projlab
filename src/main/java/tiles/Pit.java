@@ -2,7 +2,7 @@ package tiles;
 import common.Player;
 
 import static skeleton.SkeletonIO.*;
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class Pit.
  */
@@ -18,7 +18,7 @@ public class Pit extends Floor {
 		leave();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see ballmerpeak.stargate.tiles.Floor#stepOnTile(ballmerpeak.stargate.Player)
 	 */
 	@Override
@@ -29,7 +29,7 @@ public class Pit extends Floor {
 		leave();
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see ballmerpeak.stargate.tiles.Floor#dropCrateHere(ballmerpeak.stargate.Player)
 	 */
 	@Override
@@ -40,7 +40,7 @@ public class Pit extends Floor {
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see ballmerpeak.stargate.tiles.Floor#canPlayerMoveHere()
 	 */
 	@Override

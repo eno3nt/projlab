@@ -3,7 +3,7 @@ import common.Game;
 import common.Player;
 
 import static skeleton.SkeletonIO.*;
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class QuitCommand.
  */
@@ -24,7 +24,7 @@ public class QuitCommand implements InputCommand {
 		leave();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see ballmerpeak.stargate.commands.InputCommand#execute(ballmerpeak.stargate.Player)
 	 */
 	@Override

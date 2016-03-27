@@ -2,7 +2,7 @@ package tiles;
 import common.Player;
 
 import static skeleton.SkeletonIO.*;
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class Floor.
  */
@@ -59,7 +59,7 @@ public class Floor extends Tile {
 		return answer;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see ballmerpeak.stargate.tiles.Tile#dropCrateHere(ballmerpeak.stargate.Player)
 	 */
 	@Override
@@ -75,7 +75,7 @@ public class Floor extends Tile {
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see ballmerpeak.stargate.tiles.Tile#pickupCrate(ballmerpeak.stargate.Player)
 	 */
 	@Override
@@ -105,7 +105,7 @@ public class Floor extends Tile {
 		leave();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see ballmerpeak.stargate.tiles.Tile#canPlayerMoveHere()
 	 */
 	@Override

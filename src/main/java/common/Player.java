@@ -4,7 +4,6 @@ import tiles.Tile;
 
 import static skeleton.SkeletonIO.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Player.
  */

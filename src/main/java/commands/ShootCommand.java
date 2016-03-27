@@ -3,7 +3,7 @@ import common.Player;
 import tiles.ShotColor;
 
 import static skeleton.SkeletonIO.*;
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ShootCommand.
  */
@@ -24,7 +24,7 @@ public class ShootCommand implements InputCommand {
 		leave();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see ballmerpeak.stargate.commands.InputCommand#execute(ballmerpeak.stargate.Player)
 	 */
 	@Override

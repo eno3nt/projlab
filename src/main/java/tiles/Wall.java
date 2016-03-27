@@ -2,7 +2,7 @@ package tiles;
 import common.Direction;
 
 import static skeleton.SkeletonIO.*;
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class Wall.
  */
@@ -18,7 +18,7 @@ public class Wall extends Tile {
 		leave();
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see ballmerpeak.stargate.tiles.Tile#canPlayerMoveHere()
 	 */
 	@Override
@@ -29,7 +29,7 @@ public class Wall extends Tile {
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see ballmerpeak.stargate.tiles.Tile#shootIt(ballmerpeak.stargate.tiles.ShotColor, ballmerpeak.stargate.Direction)
 	 */
 	@Override

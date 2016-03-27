@@ -3,7 +3,6 @@ package skeleton;
 
 import java.util.Scanner;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class SkeletonIO.
  */

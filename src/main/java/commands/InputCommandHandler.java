@@ -1,5 +1,5 @@
 package commands;
-// TODO: Auto-generated Javadoc
+
 /**
  * The Interface InputCommandHandler.
  */

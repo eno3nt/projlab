@@ -1,7 +1,6 @@
 package tiles;
 
 
-// TODO: Auto-generated Javadoc
 /**
  * The Enum ShotColor.
  */

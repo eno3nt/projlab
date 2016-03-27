@@ -1,7 +1,6 @@
 package commands;
 import common.Player;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface InputCommand.
  */

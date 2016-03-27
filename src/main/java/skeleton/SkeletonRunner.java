@@ -19,7 +19,6 @@ import tiles.ShotColor;
 import tiles.Tile;
 import utils.MapLoader;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class SkeletonRunner.
  */

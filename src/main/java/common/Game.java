@@ -4,7 +4,6 @@ import static skeleton.SkeletonIO.*;
 import commands.InputCommand;
 import commands.InputCommandHandler;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Game.
  */
@@ -30,7 +29,7 @@ public class Game implements InputCommandHandler {
 		leave();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see ballmerpeak.stargate.InputCommandHandler#receiveInput(ballmerpeak.stargate.commands.InputCommand)
 	 */
 	@Override

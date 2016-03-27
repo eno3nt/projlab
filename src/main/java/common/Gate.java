@@ -4,7 +4,6 @@ import tiles.SpecialWall;
 
 import static skeleton.SkeletonIO.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Gate.
  */
@@ -87,9 +86,9 @@ public class Gate {
 	/**
 	 * Sets the yello wall.
 	 *
-	 * @param wall the new yello wall
+	 * @param wall the new yellow wall
 	 */
-	public void setYelloWall(SpecialWall wall) {
+	public void setYellowWall(SpecialWall wall) {
 		yellowWall = wall;
 	}
 }
