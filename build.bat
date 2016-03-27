@@ -1,13 +1,14 @@
 @echo off
 setlocal EnableDelayedExpansion
-set mainClass=ballmerpeak.stargate.gui.GameWindow
+set mainClass=NOTSET
 set javaFiles=
 set classFiles=
 set jarIncludedFiles=
 cd src/main/java/
 
 if "%~1" neq "" set mainClass=%~1
-echo Entry point is set to %mainClass%
+if %mainClass%==NOTSET GOTO ERROR_noEntryPoint
+echo Entry point is set to "%mainClass%"
 
 FOR /R %%f IN (*.java) DO call :addJavaFile %%f
 javac -g %javaFiles% 1>NUL
@@ -31,6 +32,11 @@ for /f "delims=" %%i in ('forfiles /m "*.png" /s /c "cmd.exe /c echo @relpath"')
 
 if "%jarIncludedFiles% neq "" jar uf ..\stargate.jar %jarIncludedFiles% 1>NUL
 
+goto :eof
+
+:ERROR_noEntryPoint
+echo Entry point not set
+echo If you are trying to build the skeleton, please run "build-skeleton.bat"
 goto :eof
 
 :addJavaFile
