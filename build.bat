@@ -5,33 +5,31 @@ set javaFiles=
 set classFiles=
 set jarIncludedFiles=
 cd src/main/java/
-echo "%~1"
+
 if "%~1" neq "" set mainClass=%~1
-echo Generating manifest for entry point: %mainClass%
-echo Main-Class: %mainClass% > ..\Manifest.mf
-echo( >> ..\Manifest.mf
+echo Entry point is set to %mainClass%
 
 FOR /R %%f IN (*.java) DO call :addJavaFile %%f
 javac -g %javaFiles% 1>NUL
 
 for /f "delims=" %%i in ('forfiles /m "*.class" /s /c "cmd.exe /c echo @relpath"') DO call :addClassFile %%i
 
-jar cfm stargate.jar ..\Manifest.mf %classFiles% 1>NUL
+jar cfe stargate.jar %mainClass% %classFiles% 1>NUL
 
 move stargate.jar .. 1>NUL
+if exist ..\resources\ (call :packageResources)
 
+move ..\stargate.jar ..\..\..\ 1>NUL
+
+goto :eof
+
+:packageResources
 cd ..\resources\
-
+	
 for /f "delims=" %%i in ('forfiles /m "*.txt" /s /c "cmd.exe /c echo @relpath"') DO call :includeInJar %%i
 for /f "delims=" %%i in ('forfiles /m "*.png" /s /c "cmd.exe /c echo @relpath"') DO call :includeInJar %%i
 
-jar uf ..\stargate.jar %jarIncludedFiles% 1>NUL
-move ..\stargate.jar ..\..\..\ 1>NUL
-
-echo Included manifest:
-echo ------------------
-type ..\Manifest.mf
-echo --End of Manifest-
+if "%jarIncludedFiles% neq "" jar uf ..\stargate.jar %jarIncludedFiles% 1>NUL
 
 goto :eof
 

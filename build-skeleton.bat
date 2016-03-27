@@ -1,2 +1,2 @@
 @echo off
-.\build.bat ballmerpeak.stargate.skeleton.Main
+.\build.bat skeleton.SkeletonRunner
