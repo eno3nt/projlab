@@ -19,10 +19,10 @@ public class Gate {
 	 * Instantiates a new gate.
 	 */
 	public Gate() {
-//		enter();
-//		log("Gate#Gate");
+		enter();
+		log("Gate#Gate");
 		yellowWall = blueWall = null;
-//		leave();
+		leave();
 	}
 
 	/**
@@ -84,7 +84,7 @@ public class Gate {
 	}
 	
 	/**
-	 * Sets the yello wall.
+	 * Sets the yellow wall.
 	 *
 	 * @param wall the new yellow wall
 	 */
