@@ -1,5 +1,5 @@
-REM Reset build environment.
 @echo off
+REM Reset build environment.
 
 REM JAR file.
 del .\stargate.jar 2>NUL

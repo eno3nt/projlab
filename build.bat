@@ -1,5 +1,5 @@
-REM Compile and package files into a JAR.
 @echo off
+REM Compile and package files into a JAR.
 
 REM Variable declarations.
 set mainClass=NOTSET
@@ -30,7 +30,7 @@ if exist ..\resources\ (call :packageResources)
 REM Move JAR to project root.
 move ..\stargate.jar ..\..\..\ 1>NUL
 
-goto :eof
+goto :end
 
 :packageResources
 cd ..\resources\
@@ -47,7 +47,7 @@ goto :eof
 :ERROR_noEntryPoint
 echo Entry point not set
 echo If you are trying to build the skeleton, please run "build-skeleton.bat"
-goto :eof
+goto :end
 
 :addJavaFile
 echo Compiling %1
@@ -63,3 +63,6 @@ goto :eof
 echo Packaging resource %1
 set jarIncludedFiles=%jarIncludedFiles% %1
 goto :eof
+
+:end
+cd ..\..\..\
