@@ -1,6 +1,8 @@
+REM Reset build environment.
 @echo off
-setlocal EnableDelayedExpansion
 
+REM JAR file.
 del .\stargate.jar 2>NUL
-del src\main\Manifest.mf 2>NUL
+
+REM Class file-ok.
 forfiles /m "*.class" /s /c "cmd.exe /c del @path 2>NUL" 2>NUL
