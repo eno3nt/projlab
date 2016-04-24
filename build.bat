@@ -21,6 +21,11 @@ goto :end
 
 for /f "delims=" %%i in ('forfiles /m "*.class" /s /c "cmd.exe /c echo @relpath"') DO call :addClassFile %%i
 
+REM We are not building JARs in the current release,
+REM but if needed, just comment the line below.
+goto :end
+
+
 REM Build JAR.
 jar cfe stargate.jar %mainClass% %classFiles% 1>NUL
 
