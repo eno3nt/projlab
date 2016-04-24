@@ -10,4 +10,4 @@
 # testing
 
     proto.bat <tests/1_zpm_pickup_in.txt >output.txt
-    stdiff.bat tests/1_zpm_pickup_out.txt output.txt
+    sgdiff.bat tests/1_zpm_pickup_out.txt output.txt
