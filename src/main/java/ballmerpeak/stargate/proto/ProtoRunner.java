@@ -139,11 +139,6 @@ public class ProtoRunner {
      * instantiates a ProtoRunner and calls it's run method
      */
 	public static void main(String... args) throws Exception {
-		String test = dataDirectory + "/tests/9_player_teleport_";
-		String input = test + "in.txt";
-		String output = test + "out.txt";
-		System.setIn(new FileInputStream(input));
-		System.setOut(new PrintStream(new FileOutputStream(output)));
 		new ProtoRunner("zpm", "replicator").run();
 	}
 }
