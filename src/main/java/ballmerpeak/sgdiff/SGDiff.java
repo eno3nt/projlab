@@ -8,7 +8,7 @@ public class SGDiff {
 
 	public static void main(String... args) throws FileNotFoundException, IOException {
 		if (args.length != 2) {
-			System.err.println("Usage: sgdiff expected actual");
+			System.err.println("Usage: sgdiff <expected> <actual>");
 			System.exit(1);
 		}
 		

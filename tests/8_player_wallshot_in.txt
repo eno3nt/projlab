@@ -1,0 +1,11 @@
+random off
+jaffa
+up
+left
+left
+left
+left
+left
+left
+down
+shoot green

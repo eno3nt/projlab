@@ -1,30 +1,13 @@
-# Map design
+# compiling
 
-## File format
+    ...
 
-- first line: number of rows
-- second line: number of columns
+# running
 
-- edge of map has to be walled
+    ...
 
-### legend:
 
-- '#' wall
-- ' ' floor
-- '@' player1 start position
-- '?' player2 start position
-- '\*' replicator start position
-- '0' pit
-- '$' zpm
-- '%' crate
-- '>' special wall facing right
-- '<' special wall facing left
-- '^' special wall facing up
-- '/' special wall facing down
+# testing
 
-example in src/test/resources/maps/map1.txt
-
-## to try the new map
-
-- place it next to map1.txt
-- edit the map loading code in src/main/java/ballmerpeak/stargate/gui/GameWindow.java main method with the new filename
+    <game_exe> <tests/1_zpm_pickup_in.txt >output.txt
+    <sgdiff> tests/1_zpm_pickup_out.txt output.txt

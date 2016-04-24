@@ -1,0 +1,26 @@
+oneil: <alive, up, 0 ZPM(s), no crate>
+	up: Floor <ZPM>	left: Wall	down: Wall	right: Wall
+jaffa: <alive, up, 0 ZPM(s), no crate>
+	up: Floor <ZPM>	left: Wall	down: Wall	right: Wall
+oneil> oneil: <alive, up, 0 ZPM(s), no crate>
+	up: Floor <ZPM>	left: Wall	down: Wall	right: Wall
+jaffa: <alive, up, 0 ZPM(s), no crate>
+	up: Floor <ZPM>	left: Wall	down: Wall	right: Wall
+jaffa> oneil: <alive, up, 0 ZPM(s), no crate>
+	up: Floor <ZPM>	left: Wall	down: Wall	right: Wall
+jaffa: <alive, up, 1 ZPM(s), no crate>
+	up: Floor	left: Floor	down: Floor	right: Floor <crate)>
+jaffa> oneil: <alive, up, 0 ZPM(s), no crate>
+	up: Floor <ZPM>	left: Wall	down: Wall	right: Wall
+jaffa: <alive, left, 1 ZPM(s), no crate>
+	up: Floor	left: Floor	down: Floor	right: Floor <crate)>
+jaffa> oneil: <alive, up, 0 ZPM(s), no crate>
+	up: Floor <ZPM>	left: Wall	down: Wall	right: Wall
+jaffa: <alive, left, 1 ZPM(s), no crate>
+	up: Floor	left: Floor	down: Floor	right: Floor <crate)>
+jaffa> dead
+oneil: <alive, up, 0 ZPM(s), no crate>
+	up: Floor <ZPM>	left: Wall	down: Wall	right: Wall
+jaffa: <alive, left, 1 ZPM(s), no crate>
+	up: Floor	left: Floor	down: Floor	right: Floor <crate)>
+jaffa> 
