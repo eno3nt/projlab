@@ -1,0 +1,6 @@
+random off
+jaffa
+up
+left
+shoot red
+rep

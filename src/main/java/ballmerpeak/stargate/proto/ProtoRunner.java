@@ -1,13 +1,10 @@
-/**
- * 
- */
 package ballmerpeak.stargate.proto;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 
 import ballmerpeak.stargate.Game;
 import ballmerpeak.stargate.RandomReplicatorMovement;
@@ -18,6 +15,7 @@ import ballmerpeak.stargate.utils.MapLoader;
 /**
  * @author ballmerpeak
  *
+ * the entry point for the prototype
  */
 public class ProtoRunner {
 
@@ -26,13 +24,23 @@ public class ProtoRunner {
 	ProtoInputCommandFactory icf;
 	ProtoIO io;
 
+    /**
+     * files for fixing the random elements
+     */
 	String replicatorFile, zpmFile;
 	
-	String dataDirectory;
+    /**
+     * directory containing the map, tests etc.
+     */
+	static String dataDirectory = System.getProperty("user.dir") + "/src/test/resources";
 	
 	ReplicatorMovementStrategy fixedReplicatorMovementStrategy;
+
 	private boolean prompt;
 
+    /**
+     * resets the state of the game
+     */
 	private void reset() throws Exception {
 		String mapDirectory = dataDirectory + "/maps/";
 		String mapFile = mapDirectory + "map5.txt";
@@ -44,6 +52,9 @@ public class ProtoRunner {
 		prompt = true;
 	}
 
+    /**
+     * enables or disables the random elements
+     */
 	private void setRandom(boolean b) {
 		if (b) {
 			game.setReplicatorMovementStrategy(new RandomReplicatorMovement());
@@ -56,13 +67,23 @@ public class ProtoRunner {
 		prompt = b;
 	}
 
+    /**
+     * constructor
+     * sets up the dataDirectory and the files
+     * calls reset() initializing the game
+     */
 	public ProtoRunner(String zpmFile, String replicatorFile) throws Exception {
-		dataDirectory = System.getProperty("user.dir") + "/src/test/resources";
+		
 		this.zpmFile = dataDirectory + "/random/" + zpmFile;
 		this.replicatorFile = dataDirectory + "/random/" + replicatorFile;
 		reset();
 	}
 
+    /**
+     * the main loop
+     * reads input from stdin, interprets some commands by itself,
+     * delegates the rest to the inputcommandfactory
+     */
 	public void run() throws Exception {
 		String line;
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -113,7 +134,16 @@ public class ProtoRunner {
 		System.out.format("%s> ", icf.oneil ? "oneil" : "jaffa");
 	}
 
+    /**
+     * entry point
+     * instantiates a ProtoRunner and calls it's run method
+     */
 	public static void main(String... args) throws Exception {
+		String test = dataDirectory + "/tests/9_player_teleport_";
+		String input = test + "in.txt";
+		String output = test + "out.txt";
+		System.setIn(new FileInputStream(input));
+		System.setOut(new PrintStream(new FileOutputStream(output)));
 		new ProtoRunner("zpm", "replicator").run();
 	}
 }

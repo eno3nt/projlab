@@ -1,0 +1,11 @@
+random off
+up
+right
+pickup
+right
+pickup
+right
+up
+up
+up
+up

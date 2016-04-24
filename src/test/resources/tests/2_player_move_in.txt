@@ -1,0 +1,4 @@
+random off
+up
+right
+right

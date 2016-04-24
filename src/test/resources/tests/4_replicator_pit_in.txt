@@ -1,0 +1,6 @@
+random off
+up
+down
+up 
+down
+rep

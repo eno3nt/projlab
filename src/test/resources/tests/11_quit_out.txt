@@ -1,0 +1,5 @@
+oneil: <alive, up, 0 ZPM(s), no crate>
+	up: Floor <ZPM>	left: Wall	down: Wall	right: Wall
+jaffa: <alive, up, 0 ZPM(s), no crate>
+	up: Floor <ZPM>	left: Wall	down: Wall	right: Wall
+oneil> 

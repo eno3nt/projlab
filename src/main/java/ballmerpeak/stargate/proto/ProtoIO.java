@@ -1,6 +1,3 @@
-/**
- * 
- */
 package ballmerpeak.stargate.proto;
 
 import java.util.HashMap;
@@ -16,12 +13,25 @@ import ballmerpeak.stargate.tiles.Tile;
 /**
  * @author ballmerpeak
  *
+ * handles the output of the prototype
+ * prints info on the state of the game
  */
 public class ProtoIO {
 
+    /**
+     * lookup table for the various tiles in the game
+     * returns a string representing the tile
+     */
 	Map<DrawableIndex, String> tileInfo = new HashMap<>();
+
+    /**
+     * reference to the game object created by the maploader
+     */
 	Game game;
 	
+    /**
+     * sets up the tileInfo table and stores the game reference
+     */
 	public ProtoIO(Game game) {
 		tileInfo.put(DrawableIndex.FLOOR_WITH_ZPM, "Floor <ZPM>");
 		tileInfo.put(DrawableIndex.FLOOR_WITH_ZPM2, "Floor <ZPM>");
@@ -59,11 +69,17 @@ public class ProtoIO {
 		this.game = game;
 	}
 
+    /**
+     * prints the state of the two players
+     */
 	public void printInfo() {
 		Player player = game.getOneil();
 		Player jaffa = game.getJaffa();
 		Replicator replicator = game.getReplicator();
 		
+        /**
+         * determine where the player is facing (its direction)
+         */
 		String playerFacing = "";
 		switch (player.getDirection()) {
 		case UP:
@@ -80,9 +96,15 @@ public class ProtoIO {
 			break;
 		}
 		
+        /**
+         * print the state of oneil
+         */
 		System.out.format("oneil: <%s, %s, %d ZPM(s), %s crate>\n",
 				player.isAlive() ? "alive" : "dead", playerFacing, player.getZPMsCarried(), player.isCarrying() ? "" : "no");
 		
+        /**
+         * print info about the neighboring tiles
+         */
 		Tile playerTile = player.getTile();
 		System.out.format("\tup: %s", tileInfo.get(playerTile.getNeighborForDirection(Direction.UP).getDrawableIndex()));
 		System.out.format("\tleft: %s", tileInfo.get(playerTile.getNeighborForDirection(Direction.LEFT).getDrawableIndex()));
@@ -90,6 +112,9 @@ public class ProtoIO {
 		System.out.format("\tright: %s", tileInfo.get(playerTile.getNeighborForDirection(Direction.RIGHT).getDrawableIndex()));
 		System.out.println();
 		
+        /**
+         * the same thing for the jaffa
+         */
 		playerFacing = "";
 		switch (jaffa.getDirection()) {
 		case UP:
@@ -118,6 +143,9 @@ public class ProtoIO {
 		
 	}
 	
+    /**
+     * prints whether the replicator is alive or dead
+     */
 	public void printReplicatorInfo() {
 		System.out.println(game.getReplicator().isAlive() ? "alive" : "dead");
 	}

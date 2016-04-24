@@ -5,7 +5,6 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.tree.FixedHeightLayoutCache;
 
 import ballmerpeak.stargate.Game;
 import ballmerpeak.stargate.commands.InputCommand;

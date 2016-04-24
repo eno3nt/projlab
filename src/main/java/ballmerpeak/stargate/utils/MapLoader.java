@@ -1,9 +1,7 @@
 package ballmerpeak.stargate.utils;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,7 +15,6 @@ import ballmerpeak.stargate.Jaffa;
 import ballmerpeak.stargate.Player;
 import ballmerpeak.stargate.RandomReplicatorMovement;
 import ballmerpeak.stargate.Replicator;
-import ballmerpeak.stargate.proto.FixedReplicatorMovementStrategy;
 import ballmerpeak.stargate.tiles.Door;
 import ballmerpeak.stargate.tiles.Floor;
 import ballmerpeak.stargate.tiles.Pit;
