@@ -1,7 +1,7 @@
 package ballmerpeak.stargate.gui;
 
 public interface DrawableSource {
-	int getWidth();
-	int getHeight();
-	Drawable tileAt(int y, int x);
+	public int getWidth();
+	public int getHeight();
+	public Drawable tileAt(int y, int x);
 }
