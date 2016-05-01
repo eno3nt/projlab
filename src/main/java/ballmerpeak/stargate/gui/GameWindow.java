@@ -9,23 +9,19 @@ import javax.swing.JPanel;
 import ballmerpeak.stargate.Game;
 import ballmerpeak.stargate.RandomReplicatorMovement;
 import ballmerpeak.stargate.commands.InputCommand;
-import ballmerpeak.stargate.commands.InputCommandHandler;
-import ballmerpeak.stargate.commands.InputCommandSource;
 import ballmerpeak.stargate.utils.MapLoader;
+import ballmerpeak.stargate.utils.MapLoaderHelper;
 
-public class GameWindow extends JFrame implements KeyListener, InputCommandSource {
+public class GameWindow extends JFrame implements KeyListener {
 	private GameRenderer canvas;
-	private InputCommandHandler inputHandler;
 	private Game game;
-	private DrawableSource gfxModel;
 	private SwingInputCommandFactory ifc;
-	private SwingMapLoaderHelper mlh;
-
+	
 	public GameWindow() throws Exception {
 		String dataDirectory = System.getProperty("user.dir") + "/src/test/resources";
 		String mapDirectory = dataDirectory + "/maps/";
 		String mapFile = mapDirectory + "map5.txt";
-		mlh = new SwingMapLoaderHelper();
+		MapLoaderHelper mlh = new SwingMapLoaderHelper();
 		MapLoader loader = new MapLoader(mapFile);
 		loader.setHelper(mlh);
 
@@ -35,7 +31,7 @@ public class GameWindow extends JFrame implements KeyListener, InputCommandSourc
 		
 		game.setReplicatorMovementStrategy(new RandomReplicatorMovement());
 
-		gfxModel = mlh.getGraphicsModel();
+		DrawableSource gfxModel = mlh.getGraphicsModel();
 		canvas = new GameCanvas(gfxModel.getHeight(), gfxModel.getWidth());
 		canvas.setDrawableSource(gfxModel);
 
@@ -52,11 +48,6 @@ public class GameWindow extends JFrame implements KeyListener, InputCommandSourc
 
 	public static void main(String... args) throws Exception {
 		new GameWindow();
-	}
-	
-
-	public void setInputCommandHandler(InputCommandHandler handler) {
-		this.inputHandler = handler;
 	}
 
 	@Override
@@ -84,11 +75,6 @@ public class GameWindow extends JFrame implements KeyListener, InputCommandSourc
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public InputCommand getNextCommand() {
-		return null;
 	}
 
 }
