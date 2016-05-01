@@ -40,6 +40,7 @@ public class Game implements InputCommandHandler {
 		return !anyZPMsLeft();
 	}
 
+
 	public boolean isOneilAlive() {
 		return oneil.isAlive();
 	}

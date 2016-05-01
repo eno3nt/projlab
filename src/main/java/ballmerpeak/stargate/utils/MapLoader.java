@@ -26,7 +26,6 @@ import ballmerpeak.stargate.tiles.Wall;
 public class MapLoader {
 
 	private Game game;
-
 	private Player oneil;
 	private Player jaffa;
 	private Replicator replicator;
