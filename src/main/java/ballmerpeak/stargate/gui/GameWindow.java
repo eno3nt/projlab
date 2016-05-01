@@ -7,10 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import ballmerpeak.stargate.Game;
+import ballmerpeak.stargate.RandomReplicatorMovement;
 import ballmerpeak.stargate.commands.InputCommand;
 import ballmerpeak.stargate.commands.InputCommandHandler;
 import ballmerpeak.stargate.commands.InputCommandSource;
-import ballmerpeak.stargate.proto.FixedReplicatorMovementStrategy;
 import ballmerpeak.stargate.utils.MapLoader;
 
 public class GameWindow extends JFrame implements KeyListener, InputCommandSource {
@@ -33,7 +33,7 @@ public class GameWindow extends JFrame implements KeyListener, InputCommandSourc
 		dataDirectory = System.getProperty("user.dir") + "/src/test/resources";
 		GameCanvas.loadAssets(dataDirectory + "/images/");
 		
-		game.setReplicatorMovementStrategy(new FixedReplicatorMovementStrategy(dataDirectory + "/random/replicator"));
+		game.setReplicatorMovementStrategy(new RandomReplicatorMovement());
 
 		gfxModel = mlh.getGraphicsModel();
 		canvas = new GameCanvas(gfxModel.getHeight(), gfxModel.getWidth());
