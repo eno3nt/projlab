@@ -1,9 +1,7 @@
 package ballmerpeak.stargate.utils;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,8 +10,8 @@ import java.util.Map;
 import ballmerpeak.stargate.Direction;
 import ballmerpeak.stargate.Game;
 import ballmerpeak.stargate.Gate;
-import ballmerpeak.stargate.Jaffa;
 import ballmerpeak.stargate.Oneill;
+import ballmerpeak.stargate.Jaffa;
 import ballmerpeak.stargate.Player;
 import ballmerpeak.stargate.RandomReplicatorMovement;
 import ballmerpeak.stargate.Replicator;
@@ -27,18 +25,18 @@ import ballmerpeak.stargate.tiles.Wall;
 
 public class MapLoader {
 
-	Game game;
+	private Game game;
+	private Player oneil;
+	private Player jaffa;
+	private Replicator replicator;
+	private Gate gate;
 
-	protected Player oneil, jaffa;
-	protected Replicator replicator;
-	protected Gate gate;
+	private Map<Character, Door> doors;
+	private Map<Character, Scale> scales;
 
-	protected Map<Character, Door> doors;
-	protected Map<Character, Scale> scales;
+	private List<SpecialWall> specialWalls;
 
-	protected List<SpecialWall> specialWalls;
-
-	Tile tiles[][];
+	private Tile tiles[][];
 
 	private int height;
 	private int width;
@@ -47,7 +45,7 @@ public class MapLoader {
 
 	private String filename;
 
-	public MapLoader(String filename) throws FileNotFoundException, IOException {
+	public MapLoader(String filename) {
 		this.filename = filename;
 	}
 

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package ballmerpeak.stargate;
 
 import ballmerpeak.stargate.gui.DrawableIndex;
@@ -9,12 +6,16 @@ import ballmerpeak.stargate.tiles.Tile;
 
 /**
  * @author ballmerpeak
- *
  */
 public class Replicator extends Entity {
 
+    /**
+     * the replicator moves without considering it's direction
+     * this is to prevent it from "spinning" in place for extended periods
+     */
 	@Override
 	public void move(Direction direction) {
+		this.direction = direction;
 		Tile currentTile = tile;
 		Tile nextTile = currentTile.getNeighborForDirection(direction);
 		if (nextTile.canPlayerMoveHere()) {
@@ -24,6 +25,9 @@ public class Replicator extends Entity {
 		setDirty(true);
 	}
 
+    /**
+     * return the DrawableIndex for the replicator
+     */
 	@Override
 	public DrawableIndex getDrawableIndex() {
 		switch (direction) {
@@ -40,11 +44,18 @@ public class Replicator extends Entity {
 		}
 	}
 
+    /**
+     * if a shot hits the replicator, it dies
+     */
 	@Override
 	public void shootIt() {
 		kill();
 	}
 
+    /**
+     * called by the pit
+     * it dies and fills up the pit
+     */
 	@Override
 	public void fallInPit(Pit pit) {
 		super.fallInPit(pit);

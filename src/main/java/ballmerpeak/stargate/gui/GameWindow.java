@@ -7,32 +7,31 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import ballmerpeak.stargate.Game;
+import ballmerpeak.stargate.RandomReplicatorMovement;
 import ballmerpeak.stargate.commands.InputCommand;
-import ballmerpeak.stargate.commands.InputCommandHandler;
-import ballmerpeak.stargate.commands.InputCommandSource;
 import ballmerpeak.stargate.utils.MapLoader;
+import ballmerpeak.stargate.utils.MapLoaderHelper;
 
-public class GameWindow extends JFrame implements KeyListener, InputCommandSource {
+public class GameWindow extends JFrame implements KeyListener {
 	private GameRenderer canvas;
-	private InputCommandHandler inputHandler;
 	private Game game;
-	private DrawableSource gfxModel;
 	private SwingInputCommandFactory ifc;
-	private SwingMapLoaderHelper mlh;
-
+	
 	public GameWindow() throws Exception {
 		String dataDirectory = System.getProperty("user.dir") + "/src/test/resources";
 		String mapDirectory = dataDirectory + "/maps/";
-		String mapFile = mapDirectory + "map4.txt";
-		mlh = new SwingMapLoaderHelper();
+		String mapFile = mapDirectory + "map5.txt";
+		MapLoaderHelper mlh = new SwingMapLoaderHelper();
 		MapLoader loader = new MapLoader(mapFile);
 		loader.setHelper(mlh);
 
 		game = loader.getGame();
 		dataDirectory = System.getProperty("user.dir") + "/src/test/resources";
 		GameCanvas.loadAssets(dataDirectory + "/images/");
+		
+		game.setReplicatorMovementStrategy(new RandomReplicatorMovement());
 
-		gfxModel = mlh.getGraphicsModel();
+		DrawableSource gfxModel = mlh.getGraphicsModel();
 		canvas = new GameCanvas(gfxModel.getHeight(), gfxModel.getWidth());
 		canvas.setDrawableSource(gfxModel);
 
@@ -50,11 +49,6 @@ public class GameWindow extends JFrame implements KeyListener, InputCommandSourc
 	public static void main(String... args) throws Exception {
 		new GameWindow();
 	}
-	
-
-	public void setInputCommandHandler(InputCommandHandler handler) {
-		this.inputHandler = handler;
-	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
@@ -62,7 +56,7 @@ public class GameWindow extends JFrame implements KeyListener, InputCommandSourc
 		InputCommand cmd = ifc.nextCommand();
 		game.setPlayerSelectionStrategy(ifc.getPlayerSelectionStrategy());
 		game.receiveInput(cmd);
-		if (!game.isOnilAlive() || !game.isJaffaAlive()) {
+		if (!game.isOneilAlive() || !game.isJaffaAlive()) {
 			System.exit(0);
 		}
 		if (game.didPlayersWin()) {
@@ -81,11 +75,6 @@ public class GameWindow extends JFrame implements KeyListener, InputCommandSourc
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public InputCommand getNextCommand() {
-		return null;
 	}
 
 }

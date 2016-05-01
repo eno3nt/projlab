@@ -2,23 +2,44 @@ package ballmerpeak.stargate.tiles;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import ballmerpeak.stargate.Direction;
 import ballmerpeak.stargate.Entity;
 import ballmerpeak.stargate.Player;
 import ballmerpeak.stargate.gui.DrawableIndex;
 
+/**
+ * represents areas where the players can move to
+ * also a base class for several other Tiles
+ */
 public class Floor extends Tile {
 
+    /**
+     * the strategy for generating new zpms
+     */
 	private static ZPMGeneratingStrategy zpmgs;
+    /**
+     * list containing all the other floors
+     * needed for the zpm generation
+     */
 	public static List<Floor> floors = new ArrayList<>();
 
+    /**
+     * list containing the entities that are currently standing on it
+     */
 	protected List<Entity> entities;
 
+    /**
+     * true if it has a ZPM on it
+     */
 	private boolean ZPM;
 
+    /**
+     * the number of crates on the floor
+     */
 	private int numCrates;
-	
+
 	public static void setZPMGeneratingStrategy(ZPMGeneratingStrategy zpmgs_) {
 		zpmgs = zpmgs_;
 	}
@@ -29,30 +50,44 @@ public class Floor extends Tile {
 		numCrates = 0;
 	}
 
+    /**
+     * factory method used by the maploader
+     */
 	public static Floor floorWithZPM() {
 		Floor floor = new Floor();
 		floor.ZPM = true;
 		return floor;
 	}
 
+    /**
+     * factory method used by the maploader
+     */
 	public static Floor floorWithCrate() {
 		Floor floor = new Floor();
 		floor.numCrates = 1;
 		return floor;
 	}
 
+    /**
+     * return true if the number of crates on the floor is not zero
+     */
 	public boolean hasCrate() {
 		return numCrates != 0;
 	}
 
+    /**
+     * increments crate count and calls setCarrying(false) on the player
+     */
 	@Override
 	public void dropCrateHere(Player player) {
-		if (!hasCrate()) {
-			numCrates++;
-			player.setCarrying(false);
-		}
+		numCrates++;
+		player.setCarrying(false);
 	}
 
+    /**
+     * if there is a crate decrement the count and all setCarrying(true)
+     * on the player
+     */
 	@Override
 	public void pickupCrate(Player player) {
 		if (hasCrate()) {
@@ -61,6 +96,10 @@ public class Floor extends Tile {
 		}
 	}
 
+    /**
+     * adds the entity to the list
+     * if it has a zpm, calls the entity's steppedOnZPM method
+     */
 	@Override
 	public void stepOnTile(Entity entity) {
 		entities.add(entity);
@@ -71,12 +110,19 @@ public class Floor extends Tile {
 		super.stepOnTile(entity);
 	}
 
+    /**
+     * remove the entity from the list
+     */
 	@Override
 	public void leaveTile(Entity entity) {
 		super.leaveTile(entity);
 		entities.remove(entity);
 	}
 
+    /**
+     * if there are no entities transmits the shot to the next tile (in the right direction)
+     * else calls shootIt on all the entities on the floor
+     */
 	@Override
 	public void shootIt(ShotColor color, Direction dir) {
 		if (!hasEntity() || allEntitiesOnFloorAreDead())
@@ -89,10 +135,15 @@ public class Floor extends Tile {
 		}
 	}
 
+    /**
+     * if it has an entity on the floor it returns its DrawableIndex
+     * else returns an index based on its state (crate, zpm)
+     */
 	public DrawableIndex getDrawableIndex() {
+		Random random = new Random();
+		DrawableIndex d = (random.nextInt() % 2 == 0) ? DrawableIndex.FLOOR_WITH_ZPM : DrawableIndex.FLOOR_WITH_ZPM2;
 		return hasEntity() ? entities.get(0).getDrawableIndex()
-				: hasZPM() ? DrawableIndex.FLOOR_WITH_ZPM
-						: hasCrate() ? DrawableIndex.FLOOR_WITH_CRATE : DrawableIndex.FLOOR;
+				: hasZPM() ? d : hasCrate() ? DrawableIndex.FLOOR_WITH_CRATE : DrawableIndex.FLOOR;
 	}
 
 	public boolean hasEntity() {
@@ -116,6 +167,9 @@ public class Floor extends Tile {
 		return ZPM;
 	}
 
+    /**
+     * generate a new zpm on a floor returned by the zpmgs
+     */
 	public static void generateNewZPM() {
 		Floor floor = zpmgs.getFloorForNewZPM();
 		floor.setZPM(true);

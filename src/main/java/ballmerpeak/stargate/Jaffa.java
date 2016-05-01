@@ -4,12 +4,20 @@ import ballmerpeak.stargate.gui.DrawableIndex;
 import ballmerpeak.stargate.tiles.ShotColor;
 
 public class Jaffa extends Player {
+
+    /**
+     * implements the red-green colors for the jaffa
+     * the same command is used for shooting with the oneil object
+     */
 	@Override
 	public void shoot(ShotColor color) {
 		color = color == ShotColor.BLUE ? ShotColor.GREEN : ShotColor.RED;
 		super.shoot(color);
 	}
 
+    /**
+     * the DrawableIndex for the jaffa
+     */
 	@Override
 	public DrawableIndex getDrawableIndex() {
 		switch (direction) {
