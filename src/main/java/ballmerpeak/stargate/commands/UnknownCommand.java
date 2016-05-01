@@ -2,6 +2,9 @@ package ballmerpeak.stargate.commands;
 
 import ballmerpeak.stargate.Player;
 
+/**
+ * represents an unrecognized input from the user
+ */
 public class UnknownCommand implements InputCommand {
 
 	@Override

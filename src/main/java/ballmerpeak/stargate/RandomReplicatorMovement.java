@@ -9,9 +9,9 @@ package ballmerpeak.stargate;
  */
 public class RandomReplicatorMovement implements ReplicatorMovementStrategy {
 
-	/* (non-Javadoc)
-	 * @see ballmerpeak.stargate.ReplicatorMovementStrategy#getDirection()
-	 */
+    /**
+     * returns a random direction for the replicator to move towards
+     */
 	@Override
 	public Direction getDirection() {
 		return Direction.randomDirection();

@@ -24,7 +24,7 @@ public class SwingInputCommandFactory extends InputCommandFactory {
 			VK_T, VK_Y, VK_U, VK_Q
 	);
 	
-	private List<Integer> kebabEvents = Arrays.asList(
+	private List<Integer> oneilEvents = Arrays.asList(
 			VK_UP, VK_DOWN, VK_LEFT, VK_RIGHT,
 			VK_COMMA, VK_PERIOD, VK_SLASH, VK_M
 	);
@@ -32,7 +32,7 @@ public class SwingInputCommandFactory extends InputCommandFactory {
 	@Override
 	public InputCommand nextCommand() {
 		
-		if (kebabEvents.contains(event.getKeyCode())) {
+		if (oneilEvents.contains(event.getKeyCode())) {
 			pss = oneilChooser;
 		} else {
 			pss = jaffaChooser; 

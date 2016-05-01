@@ -6,8 +6,6 @@ import ballmerpeak.stargate.utils.MapLoaderHelper;
 public class SwingMapLoaderHelper implements MapLoaderHelper {
 	
 	private Tile tiles[][];
-	private int width;
-	private int height;
 	
 	@Override
 	public void tileGenerated(Tile tile, int y, int x) {
@@ -16,11 +14,10 @@ public class SwingMapLoaderHelper implements MapLoaderHelper {
 
 	@Override
 	public void dimensionsRead(int height, int width) {
-		this.height = height;
-		this.width = width;
 		tiles = new Tile[height][width];
 	}
 	
+	@Override
 	public DrawableSource getGraphicsModel() {
 		return new SwingGraphicsModel(tiles);
 	}
