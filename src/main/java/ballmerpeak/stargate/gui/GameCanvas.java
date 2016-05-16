@@ -64,16 +64,15 @@ public class GameCanvas extends JPanel implements GameRenderer {
 		float windowRatio = (float)winW/winH;
 		int offX = 0;
 		int offY = 0;
-		if(windowRatio > 1.0) {
+		if(windowRatio > imageRatio) {
 			imgH = winH;
 			imgW = (int)(imgH * imageRatio);
 			offX = (winW - imgW)/2;
-		} else if(windowRatio < 1.0) {
+		} else if(windowRatio < imageRatio) {
 			imgW = winW;
 			imgH = (int)(imgW / imageRatio);
 			offY = (winH - imgH)/2;
 		}
-		
 		g.drawImage(backBuffer, offX, offY, imgW, imgH, null);
 	}
 

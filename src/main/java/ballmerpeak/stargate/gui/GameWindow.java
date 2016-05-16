@@ -45,7 +45,7 @@ public class GameWindow extends JFrame implements KeyListener {
 		String mapDirectory = dataDirectory + "/maps/";
 		
 		// the map file
-		String mapFile = mapDirectory + "map5.txt";
+		String mapFile = mapDirectory + "de_dust_ultimate_1v1.txt";
 		
 		// create the maploader and the helper
 		MapLoaderHelper mlh = new SwingMapLoaderHelper();
