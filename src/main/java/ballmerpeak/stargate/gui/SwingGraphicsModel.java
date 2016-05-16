@@ -1,7 +1,16 @@
 package ballmerpeak.stargate.gui;
 
+/**
+ * 
+ * @author ballmerpeak
+ *
+ * DrawableSource implementation for the Swing GUI
+ */
 public class SwingGraphicsModel implements DrawableSource {
 
+	/**
+	 * the tiles stored in a 2D array
+	 */
 	private Drawable tiles[][];
 
 	private int height;

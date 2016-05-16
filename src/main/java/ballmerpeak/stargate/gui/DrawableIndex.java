@@ -1,5 +1,14 @@
 package ballmerpeak.stargate.gui;
 
+/**
+ * 
+ * @author ballmerpeak
+ *
+ * The possible values indicating the state of a tile
+ * The {@link Drawable#getDrawableIndex()} method must return one of these
+ * based on the state of the tile.
+ * The GameRenderer uses this to decide what to draw
+ */
 public enum DrawableIndex {
 	FLOOR, FLOOR_WITH_ZPM, FLOOR_WITH_ZPM2, FLOOR_WITH_CRATE,
 	

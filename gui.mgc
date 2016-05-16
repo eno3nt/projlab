@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="ballmerpeak.stargate.gui.DrawableSource" x="803" y="145">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="true" constructors-accepted="false"/>
+    </Class>
+    <Class name="ballmerpeak.stargate.gui.SwingGraphicsModel" x="813" y="284">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="ballmerpeak.stargate.gui.DrawableSource"/>
+        <Association
+            destinationClassName="ballmerpeak.stargate.gui.Drawable"
+            endpointName="tiles[][]" kind="Simple"/>
+    </Class>
+    <Class name="ballmerpeak.stargate.gui.GameCanvas" x="580" y="144">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="ballmerpeak.stargate.gui.GameRenderer"/>
+        <Association
+            destinationClassName="ballmerpeak.stargate.gui.DrawableSource"
+            endpointName="gfxModel" kind="Simple"/>
+        <Communication destinationClassName="ballmerpeak.stargate.gui.DrawableSource"/>
+        <Communication destinationClassName="ballmerpeak.stargate.gui.Drawable"/>
+    </Class>
+    <Class name="ballmerpeak.stargate.gui.Drawable" x="769" y="400">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="true" constructors-accepted="false"/>
+    </Class>
+    <Class name="ballmerpeak.stargate.gui.GameWindow" x="293" y="255">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="ballmerpeak.stargate.gui.GameRenderer"
+            endpointName="canvas" kind="Simple"/>
+        <Association destinationClassName="ballmerpeak.stargate.Game"
+            endpointName="game" kind="Simple"/>
+        <Association
+            destinationClassName="ballmerpeak.stargate.gui.SwingInputCommandFactory"
+            endpointName="ifc" kind="Simple"/>
+        <Communication destinationClassName="ballmerpeak.stargate.gui.SwingInputCommandFactory"/>
+        <Communication destinationClassName="ballmerpeak.stargate.gui.DrawableSource"/>
+        <Communication destinationClassName="ballmerpeak.stargate.Game"/>
+        <Communication destinationClassName="ballmerpeak.stargate.utils.MapLoaderHelper"/>
+        <Communication destinationClassName="ballmerpeak.stargate.utils.MapLoader"/>
+        <Communication destinationClassName="ballmerpeak.stargate.gui.GameCanvas"/>
+        <Communication destinationClassName="ballmerpeak.stargate.gui.GameRenderer"/>
+    </Class>
+    <Class name="ballmerpeak.stargate.gui.SwingInputCommandFactory"
+        x="297" y="372">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="true" constructors-accepted="false"/>
+        <Extension destinationClassName="ballmerpeak.stargate.commands.InputCommandFactory"/>
+    </Class>
+    <Class name="ballmerpeak.stargate.Game" x="281" y="63">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="ballmerpeak.stargate.utils.MapLoaderHelper" x="25" y="268">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="ballmerpeak.stargate.commands.InputCommandFactory"
+        x="296" y="502">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="ballmerpeak.stargate.utils.MapLoader" x="40" y="56">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="ballmerpeak.stargate.Game"
+            endpointName="game" kind="Simple"/>
+        <Association
+            destinationClassName="ballmerpeak.stargate.utils.MapLoaderHelper"
+            endpointName="helper" kind="Simple"/>
+        <Communication destinationClassName="ballmerpeak.stargate.Game"/>
+        <Communication destinationClassName="ballmerpeak.stargate.utils.MapLoaderHelper"/>
+    </Class>
+    <Class name="ballmerpeak.stargate.gui.SwingMapLoaderHelper" x="26" y="383">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="ballmerpeak.stargate.utils.MapLoaderHelper"/>
+    </Class>
+    <Class name="ballmerpeak.stargate.gui.GameRenderer" x="526" y="255">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="true" constructors-accepted="false"/>
+    </Class>
+</ClassDiagram>

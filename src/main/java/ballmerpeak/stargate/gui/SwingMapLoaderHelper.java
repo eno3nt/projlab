@@ -3,6 +3,13 @@ package ballmerpeak.stargate.gui;
 import ballmerpeak.stargate.tiles.Tile;
 import ballmerpeak.stargate.utils.MapLoaderHelper;
 
+/**
+ * 
+ * @author ballmerpeak
+ *
+ * MapLoaderHelper implementation for the Swing GUI
+ * 
+ */
 public class SwingMapLoaderHelper implements MapLoaderHelper {
 	
 	private Tile tiles[][];

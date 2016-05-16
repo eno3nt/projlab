@@ -23,40 +23,88 @@ import ballmerpeak.stargate.tiles.SpecialWall;
 import ballmerpeak.stargate.tiles.Tile;
 import ballmerpeak.stargate.tiles.Wall;
 
+/**
+ * 
+ * @author ballmerpeak
+ * 
+ * Used by the GameWindow to read in a map
+ * 
+ */
 public class MapLoader {
 
+	/**
+	 * the game object to return
+	 */
 	private Game game;
+	
+	/**
+	 * game entities
+	 */
 	private Player oneil;
 	private Player jaffa;
 	private Replicator replicator;
+	
+	/**
+	 * the Gate object of the game
+	 */
 	private Gate gate;
 
+	/**
+	 * used to setup the door-scale connections
+	 */
 	private Map<Character, Door> doors;
 	private Map<Character, Scale> scales;
 
+	/**
+	 * all the SpecialWalls on the map
+	 */
 	private List<SpecialWall> specialWalls;
 
+	/**
+	 * used to setup neighbors
+	 */
 	private Tile tiles[][];
 
+	/**
+	 * map dimensions in tiles
+	 */
 	private int height;
 	private int width;
 
+	/**
+	 * the (optional) helper object
+	 * this generates the DrawableSource for the GameRenderer
+	 */
 	private MapLoaderHelper helper;
 
+	/**
+	 * the filename of the map
+	 */
 	private String filename;
 
 	public MapLoader(String filename) {
 		this.filename = filename;
 	}
 
+	/**
+	 * called by the GameWindow to set the mapLoaderHelper
+	 * @param helper
+	 */
 	public void setHelper(MapLoaderHelper helper) {
 		this.helper = helper;
 	}
 
+	/**
+	 * lazily initializes the game object
+	 * 
+	 * @return the game object
+	 * @throws Exception
+	 */
 	public Game getGame() throws Exception {
 		if (game != null)
 			return game;
 
+		// create the objects
 		gate = new Gate();
 		doors = new HashMap<>();
 		scales = new HashMap<>();
@@ -65,42 +113,58 @@ public class MapLoader {
 		oneil = new Oneill();
 		jaffa = new Jaffa();
 		replicator = new Replicator();
+		
+		// read in the file
 		try (FileReader fr = new FileReader(filename); BufferedReader br = new BufferedReader(fr)) {
+			
+			// setup the dimensions
 			String lineOne = br.readLine();
 			String lineTwo = br.readLine();
 			height = Integer.parseInt(lineOne);
 			width = Integer.parseInt(lineTwo);
 			tiles = new Tile[height][width];
+			
+			// notify the helper
 			if (helper != null)
 				helper.dimensionsRead(height, width);
 
 			// get empty line between header and body
 			br.readLine();
 
+			// iterate through the tiles
 			for (int y = 0; y < height; y++) {
 				String line = br.readLine();
 				for (int x = 0; x < width; x++) {
 
+					// check for valid map
 					if ((y == 0 || y == height - 1 || x == 0 || x == width - 1) && (line.charAt(x) != '#'))
 						throw new InvalidMapFileException("edge of map has to be walled");
 
+					// create the tile
 					Tile tile = createTile(line.charAt(x));
 					tiles[y][x] = tile;
+					
+					// notify helper
 					if (helper != null) {
 						helper.tileGenerated(tile, y, x);
 					}
 				}
 			}
 		}
+		
+		// additional setup
 		setupDoors();
 		setupNeighbors();
 		game = new Game(oneil, jaffa, replicator);
 		game.setReplicatorMovementStrategy(new RandomReplicatorMovement());
-		
 		Floor.setZPMGeneratingStrategy(new RandomZPM());
+		
 		return game;
 	}
 
+	/**
+	 * used to setup door-scale pairs
+	 */
 	private void setupDoors() {
 		for (Character c : scales.keySet()) {
 			Scale scale = scales.get(c);
@@ -109,6 +173,9 @@ public class MapLoader {
 		}
 	}
 
+	/**
+	 * setup the neighbors (up-down-left-right)
+	 */
 	private void setupNeighbors() {
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
@@ -125,6 +192,11 @@ public class MapLoader {
 		}
 	}
 
+	/**
+	 * the Tile factory method
+	 * @param c the character read
+	 * @return the Tile object
+	 */
 	private Tile createTile(char c) {
 		switch (c) {
 
@@ -191,6 +263,7 @@ public class MapLoader {
 			}
 		}
 
+		// if the character is not recognized
 		throw new InvalidMapFileException("bad character read");
 
 	}
